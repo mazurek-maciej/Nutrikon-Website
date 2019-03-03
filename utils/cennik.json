@@ -1,0 +1,95 @@
+{
+    "Zabiegi1": [
+        {"id": 1, "nazwa": "Konsultacja ogólna", "value": "darmowa"},
+        {"id": 2, "nazwa": "Wizyta podstawowa", "value": "100 zł"},
+        {"id": 3, "nazwa": "Wizyta USG", "value": "150 zł"},
+        {"id": 4, "nazwa": "Wizyta z badaniem USG", "value": "270 zł"},
+        {"id": 5, "nazwa": "Wizyta z cytologią", "value": "170 zł"},
+        {"id": 6, "nazwa": "Wizyta ciążowa pierwsza", "value": "300 zł"},
+        {"id": 7, "nazwa": "Wizyta ciążowa zwykła", "value": "250 zł"},
+        {"id": 8, "nazwa": "Wizyta receptowa", "value": "70 zł"},
+        {"id": 9, "nazwa": "Wizyta wkładka hormonalna", "value": "1100 zł"},
+        {"id": 10, "nazwa": "Zabieg laserem CO2", "value": "1000 zł"}
+    ],
+    "Zabiegi2": [
+        {"id": 11, "nazwa": "Wizyta konsultacja", "value": "200 zł"},
+        {"id": 12, "nazwa": "Laser endowaskularny - 1 kończyna", "value": "3500 zł"},
+        {"id": 13, "nazwa": "Laser endowaskularny - 2 kończyny", "value": "4500 zł"},
+        {"id": 14, "nazwa": "Laser neodymowy - yagowy", "value": "2 zł"},
+        {"id": 15, "nazwa": "Badanie USG", "value": "100 zł"},
+        {"id": 16, "nazwa": "Założenie opatrunku specjalistycznego", "value": "50 zł"},
+        {"id": 17, "nazwa": "Założenie opatrunku kompresyjnego", "value": "60 zł"},
+        {"id": 18, "nazwa": "Rektoskopia", "value": "150 zł"},
+        {"id": 19, "nazwa": "Zabieg założenia gumek na hemoroidy", "value": "300 zł"},
+        {"id": 20, "nazwa": "Usunięcie zmiany skórnej do 2 cm - 1 zmiana", "value": "300 zł"},
+        {"id": 21, "nazwa": "Usunięcie zmiana skórnej powyżej 2cm - zmiana", "value": "500 zł"},
+        {"id": 22, "nazwa": "Obliteracja - 1 ampułka (zamykanie pajączków)", "value": "400 zł"},
+        {"id": 23, "nazwa": "Obliteracja pianą - 1 ampułka", "value": "600 zł"},
+        {"id": 24, "nazwa": "Chirurgiczne oczyszczanie rany", "value": "70 zł"},
+        {"id": 25, "nazwa": "Chirurgiczne oczyszczanie rany w znieczuleniu miejscowym", "value": "100 zł"},
+        {"id": 26, "nazwa": "Chirurgiczne usunięcie zmian okolice odbytu w znieczuleniu - 1 zmiana", "value": "100 zł"},
+        {"id": 27, "nazwa": "Plasma Jett - 1 obszar (teleangiektazaja, usuwanie zmarszczek", "value": "700 zł"}
+    ],
+    "Zabiegi3": [
+        {"id": 28, "nazwa": "Wizyta konsultacja", "value": "100 zł"},
+        {"id": 29, "nazwa": "Wizyta konsultacja z USG", "value": "150 zł"},
+        {"id": 30, "nazwa": "Usunięcie zmiany skórnej do 3 cm - 1 zmiana", "value": "300 zł"},
+        {"id": 31, "nazwa": "Usunięcie zmian skórnych do 3 cm za każdą dodatkową zmianę", "value": "150 zł"},
+        {"id": 32, "nazwa": "Usunięcie zmiany skórnej powyżej 3 cm", "value": "300-500 zł"},
+        {"id": 33, "nazwa": "Usunięcie zmiany skórej z plastyką", "value": "500-1000 zł"},
+        {"id": 34, "nazwa": "Usunięcie guzka łagodnego piersi", "value": "600-1000 zł"},
+        {"id": 35, "nazwa": "Biopsja cienkoigłowa", "value": "200 zł"},
+        {"id": 36, "nazwa": "Biopsja gruboigłowa", "value": "750 zł"}
+    ],
+    "Zabiegi4": [
+        {"id": 37, "nazwa": "Wizyta konsultacja", "value": "150 zł"}
+    ],
+    "Zabiegi5": [
+        {"id": 38, "nazwa": "Zabieg dekolt - 1 zabieg", "value": "900 zł"},
+        {"id": 39, "nazwa": "Zabieg dekolt - 3 zabiegi", "value": "2500 zł"},
+        {"id": 40, "nazwa": "Zabieg policzki - 1 zabieg", "value": "800 zł"},
+        {"id": 41, "nazwa": "Zabieg policzki - 3 zabiegi", "value": "2200 zł"},
+        {"id": 42, "nazwa": "Zbieg szyja - 1 zabieg", "value": "500 zł"},
+        {"id": 43, "nazwa": "Zabieg szyja - 3 zabiegi", "value": "1400 zł"},
+        {"id": 44, "nazwa": "Zabieg szyja + dekolt - 1 zabieg", "value": "1300 zł"},
+        {"id": 45, "nazwa": "Zabieg szyja + dekolt - 3 zabiegi", "value": "3500 zł"},
+        {"id": 46, "nazwa": "Zabieg twarz - 1 zabieg", "value": "1200 zł"},
+        {"id": 47, "nazwa": "Zabieg twarz - 3 zabiegi", "value": "3200 zł"},
+        {"id": 48, "nazwa": "Zabieg twarz + szyja - 1 zabieg", "value": "1900 zł"},
+        {"id": 49, "nazwa": "Zabieg twarz + szyja - 3 zabiegi", "value": "5000 zł"},
+        {"id": 50, "nazwa": "Zabieg twarz + szyja + dekolt - 1 zabieg", "value": "2400 zł"},
+        {"id": 51, "nazwa": "Zabieg twarz + szyja + dekolt - 3 zabiegi", "value": "6800 zł"},
+        {"id": 52, "nazwa": "Zabieg okolice ust - 1 zabieg", "value": "500 zł"},
+        {"id": 53, "nazwa": "Zabieg okolice ust - 3 zabiegi", "value": "1250 zł"},
+        {"id": 54, "nazwa": "Zabieg blizna po cesarskim cięciu - 1 zabieg", "value": "350 zł"},
+        {"id": 55, "nazwa": "Zabieg blizna po cesarskim cięciu - 3 zabiegi", "value": "900 zł"},
+        {"id": 56, "nazwa": "Blizna po cesarskim cięciu - 5 zabiegów", "value": "1300 zł"}
+    ],
+    "Zabiegi6": [
+        {"id": 57, "nazwa": "Osocze bogatopłytkowe ogólne", "value": "200-6000 zł"},
+        {"id": 58, "nazwa": "Osocze bogatopłytkowe twarz - 1 zabieg", "value": "600 zł"},
+        {"id": 59, "nazwa": "Osocze bogatopłytkowe twarz - 3 zabiegi", "value": "1500 zł"},
+        {"id": 76, "nazwa": "Osocze bogatopłytkowe + fibryna twarz - 1 zabiegi", "value": "700 zł"},
+        {"id": 77, "nazwa": "Osocze bogatopłytkowe + fibryna twarz - 3 zabiegi", "value": "1800 zł"}
+    ],
+    "Zabiegi7": [
+        {"id": 60, "nazwa": "Mezoterapia Neuvia 1 ml - 1 zabieg", "value": "450-600 zł"},
+        {"id": 61, "nazwa": "Mezoterapia Neuvia 1 ml - 3 zabiegi", "value": "1200-1500 zł"},
+        {"id": 62, "nazwa": "Mezoterapia Neuvia 2,5 ml - 1 zabieg", "value": "650-800 zł"},
+        {"id": 63, "nazwa": "Mezoterapia Neuvia 2,5 ml - 3 zabiegi", "value": "1500-1800 zł"}
+    ],
+    "Zabiegi8": [
+        {"id": 64, "nazwa": "Górna warga", "value": "100 zł"},
+        {"id": 65, "nazwa": "Broda", "value": "100-120 zł"},
+        {"id": 66, "nazwa": "Pachy", "value": "180 zł"},
+        {"id": 67, "nazwa": "Górna warga + broda", "value": "150 zł"},
+        {"id": 68, "nazwa": "Bikini", "value": "180-250 zł"},
+        {"id": 69, "nazwa": "Łydki", "value": "280-350 zł"},
+        {"id": 70, "nazwa": "Uda", "value": "320-400 zł"},
+        {"id": 71, "nazwa": "Nogi", "value": "390-550 zł"},
+        {"id": 72, "nazwa": "Klatka piersiowa", "value": "90-180 zł"},
+        {"id": 73, "nazwa": "Plecy + brzuch", "value": "300 zł"},
+        {"id": 74, "nazwa": "Klatka piersiowa + brzuch", "value": "300 zł"},
+        {"id": 75, "nazwa": "Okolice sutków", "value": "100 zł"}
+    ]
+  }
