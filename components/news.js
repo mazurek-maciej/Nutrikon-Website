@@ -8,6 +8,8 @@ import Container from './Container'
 
 const Wraper = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  max-width: 900px;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -20,9 +22,9 @@ const ButtonWraper = styled.div`
 const News = ({ posts }) => (
   <Wraper>
     <Container>
-      <div className="columns is-centered">
+      <div className="columns is-centered is-multiline">
         {posts.map(post => (
-          <div key={post.slug} className="column is-one-third">
+          <div key={post.slug} className="column is-two-fifths">
             <div className="card">
               <div className="card-image">
                 <figure className="image is-5by3">

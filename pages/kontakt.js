@@ -48,7 +48,7 @@ const Kontakt = ({ data }) => (
                     <ion-icon name="clipboard" />
                     Rejestracja
                   </H2>
-                  <P tel>49 792 325 000 lub 48 792 766 000</P>
+                  <P tel>48 792 325 000 lub 48 792 766 000</P>
                   <H2 blue>
                     <ion-icon name="mail" />
                     Kontakt mailowy

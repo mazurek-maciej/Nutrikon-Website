@@ -20,22 +20,24 @@ const Nav = styled.nav`
   }
 `
 const ButtonWraper = styled.div`
-  display: flex;
-  .hamburger {
-    margin-right: 1.5rem;
+  display: none;
+  height: 3rem;
+  @media (max-width: 1088px) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
+`
+const Button = styled.button `
+  border: transparent;
+  background: transparent;
+  font-size: 1.5rem;
+  margin-right: 1rem;
 `
 
 class Index extends Component {
   constructor(props) {
     super(props)
-
-    this.toggleOutsideClick = this.toggleOutsideClick.bind(this)
-    this.showToggleDropMobileNav = this.showToggleDropMobileNav.bind(this)
-    this.showToggleHamburger = this.showToggleHamburger.bind(this)
-    this.showToggleOnas = this.showToggleOnas.bind(this)
-    this.showTogglePoradnie = this.showTogglePoradnie.bind(this)
-
     this.togglePoradnieActive = React.createRef()
     this.toggleOnasActive = React.createRef()
 
@@ -45,23 +47,23 @@ class Index extends Component {
       isMobileActive: '',
       isDropMobileActive: '',
       isOpen: false,
-      oNasIsActive: '',
+      isOnasActive: '',
       isPoradnieActive: '',
       hamburger: '',
     }
   }
 
-  showToggleOnas() {
+  showToggleOnas = () => {
     this.setState({
-      oNasIsActive: 'active',
+      isOnasActive: 'active',
     })
   }
-  showTogglePoradnie() {
+  showTogglePoradnie = () => {
     this.setState({
       isPoradnieActive: 'active',
     })
   }
-  showToggleDropMobileNav() {
+  showToggleDropMobileNav = () => {
     this.setState({
       isDropMobileActive: 'active',
     })
@@ -69,7 +71,8 @@ class Index extends Component {
       this.setState({ isDropMobileActive: '' })
     }
   }
-  showToggleHamburger() {
+  
+  showToggleHamburger = () => {
     this.setState({
       isMobileActive: 'active',
       isOpen: true,
@@ -83,17 +86,17 @@ class Index extends Component {
       })
     }
   }
-  // Ukrywanie nawigacji poradnie-top/onas-drop po kliknięciu poza nawigacją
-  toggleOutsideClick(event) {
+  
+  handleOutsideNavigationClick = (event) => {
     if (
-      this.state.oNasIsActive === 'active' &&
+      this.state.isOnasActive === 'active' &&
       !this.toggleOnasActive.current.contains(event.target)
     ) {
       this.setState({
-        oNasIsActive: '',
+        isOnasActive: '',
       })
     } else if (
-      this.state.isPoradnieActive === 'active' &&
+       this.state.isPoradnieActive === 'active' &&
       !this.togglePoradnieActive.current.contains(event.target)
     ) {
       this.setState({
@@ -101,8 +104,9 @@ class Index extends Component {
       })
     }
   }
+
   componentDidMount() {
-    window.addEventListener('click', this.toggleOutsideClick)
+    window.addEventListener('click', this.handleOutsideNavigationClick)
   }
 
   render() {
@@ -118,15 +122,12 @@ class Index extends Component {
           />
 
           <ButtonWraper>
-            <button
+            <Button
               onClick={this.showToggleHamburger}
-              className={`hamburger hamburger--spring ${this.state.hamburger}`}
               type="button"
             >
-              <span className="hamburger-box">
-                <span className="hamburger-inner" />
-              </span>
-            </button>
+              <i class="fas fa-bars"></i>
+            </Button>
           </ButtonWraper>
 
           <MobileNavbar
@@ -138,7 +139,7 @@ class Index extends Component {
 
           <PoradnieDropMenu isPoradnieActive={this.state.isPoradnieActive} />
 
-          <OnasDropMenu oNasIsActive={this.state.oNasIsActive} />
+          <OnasDropMenu isOnasActive={this.state.isOnasActive} />
         </Nav>
       </>
     )

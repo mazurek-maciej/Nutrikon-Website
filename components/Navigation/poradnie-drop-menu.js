@@ -15,7 +15,7 @@ const DropMenu = posed.ul({
 })
 const NavbarWraper = styled.div`
   .drop-menu {
-    display: none;
+    display: ${props => props.active ? 'flex' : 'none'};
     justify-content: center;
     flex-flow: row wrap;
     position: absolute;
@@ -51,16 +51,15 @@ const NavbarWraper = styled.div`
       border-bottom: 2px solid ${({ theme }) => theme.colors.$B6};
     }
   }
-  .active {
-    display: flex !important;
-  }
+
 `
 
 const PoradnieDropMenu = ({ isPoradnieActive }) => (
-  <NavbarWraper>
+  <NavbarWraper active={isPoradnieActive}>
     <DropMenu
       pose={isPoradnieActive ? 'open' : 'closed'}
-      className={`drop-menu ${isPoradnieActive}`}
+      className='drop-menu'
+      
     >
       <li>
         <Link

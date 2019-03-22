@@ -15,7 +15,7 @@ const DropMenu = posed.ul({
 })
 const OnasNavbarWraper = styled.div`
   .drop-menu {
-    display: none;
+    display: ${props => props.active ? 'flex' : 'none'};
     justify-content: center;
     flex-flow: row wrap;
     position: absolute;
@@ -51,16 +51,14 @@ const OnasNavbarWraper = styled.div`
       border-bottom: 2px solid ${({ theme }) => theme.colors.$primaryBlue};
     }
   }
-  .active {
-    display: flex !important;
-  }
 `
 
-const OnasDropMenu = ({ oNasIsActive }) => (
-  <OnasNavbarWraper>
+const OnasDropMenu = ({ isOnasActive }) => (
+  <OnasNavbarWraper active={isOnasActive}>
     <DropMenu
-      pose={oNasIsActive ? 'open' : 'closed'}
-      className={`drop-menu ${oNasIsActive}`}
+      pose={isOnasActive ? 'open' : 'closed'}
+      className='drop-menu'
+      
     >
       <li>
         <Link to="/oNas">Przychodnia</Link>

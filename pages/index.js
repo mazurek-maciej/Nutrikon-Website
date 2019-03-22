@@ -54,18 +54,12 @@ const NewsWraper = styled.div`
 `
 export default class IndexPage extends React.Component {
   render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      fade: true,
-      autoplay: false,
-    }
-    const posts = this.props.data.allContentfulAktualnosci.edges.map(
-      edge => edge.node
-    )
+    
+    const posts = this.props.data.allContentfulAktualnosci.edges
+      .slice(0, 4)
+      .map(edge => edge.node)
+    
+    console.log(this.props)
     return (
       <Layout>
         <SEO
@@ -77,7 +71,7 @@ export default class IndexPage extends React.Component {
         />
         <MainCarousel
           img={this.props.data.heroImage.childImageSharp.fluid}
-          settings={settings}
+          lectureImage={this.props.data.lectureImage.childImageSharp.fluid}
         />
         <main>
           <BackgroundIndex>
@@ -126,7 +120,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulAktualnosci {
+    allContentfulAktualnosci(sort: {fields: publishDate, order: DESC}) {
       edges {
         node {
           title
@@ -141,6 +135,13 @@ export const pageQuery = graphql`
               src
             }
           }
+        }
+      }
+    }
+    lectureImage: file(relativePath: { eq: "lecture.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

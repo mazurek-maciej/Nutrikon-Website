@@ -30,12 +30,6 @@ const Td = styled.td`
     font-size: 0.8rem;
   }
 `
-const Table = styled.table`
-  * > td {
-    border: 0 !important;
-    padding: 12px 10px !important;
-  }
-`
 
 const CennikTable = ({ zabieg }) => (
   <table className="table is-hoverable is-bordered is-fullwidth">

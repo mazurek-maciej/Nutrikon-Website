@@ -19,12 +19,9 @@ const MobileNav = posed.ul({
 })
 
 const NavbarWraper = styled.div`
-  .header-navigation-mobile {
     display: none;
-  }
   @media only screen and (max-width: 1088px) {
-    .header-navigation-mobile {
-      display: none;
+      display: ${props => props.active ? 'flex' : 'none'};
       align-items: center;
       flex-direction: column;
       position: absolute;
@@ -34,15 +31,18 @@ const NavbarWraper = styled.div`
       background-color: rgba(255, 255, 255, 0.9);
       z-index: 1;
       font-size: 1.5rem;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-      box-shadow: 0px 10px 25px -16px rgba(0, 0, 0, 0.3);
       transition: all 0.2s linear;
       position: sticky;
       top: 0;
+      ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
       li {
         list-style: none;
-        display: none;
+        display: flex;
         flex-direction: column;
         justify-content: center;
         margin: 10px 10px 10px 10px;
@@ -62,14 +62,11 @@ const NavbarWraper = styled.div`
       @media (min-width: 320px) and (max-width: 480px) {
         font-size: 1.1rem;
       }
-    }
-    .isMobileActive {
-      display: flex !important;
-    }
+
   }
   @media only screen and (max-width: 1088px) {
     .drop-menu {
-      display: none !important;
+      display: none 
     }
   }
   .drop-menu-mobile {
@@ -101,7 +98,7 @@ const NavbarWraper = styled.div`
     }
   }
   .active {
-    display: flex !important;
+    display: flex 
   }
 `
 
@@ -111,16 +108,15 @@ const MobileNavbar = ({
   isDropMobileActive,
   showToggleDropMobileNav,
 }) => (
-  <NavbarWraper>
+  <NavbarWraper active={isMobileActive}>
     <MobileNav
       pose={isOpen ? 'open' : 'closed'}
-      className={`header-navigation-mobile ${isMobileActive}`}
     >
-      <li className={isMobileActive}>
+      <li>
         <Link to="/">Strona Główna</Link>
       </li>
 
-      <li className={isMobileActive} onClick={showToggleDropMobileNav}>
+      <li onClick={showToggleDropMobileNav}>
         Poradnie
       </li>
       <div>
@@ -152,31 +148,29 @@ const MobileNavbar = ({
         </ul>
       </div>
 
-      <li className={isMobileActive}>
-        <Link to="/zabiegi/laserowe-leczenie-żylaków-pniowych-evlt">Zabiegi</Link>
+      <li>
+        <Link to="/zabiegi/laserowe-leczenie-żylaków-pniowych-evlt">
+          Zabiegi
+        </Link>
       </li>
 
-      <li className={isMobileActive}>
+      <li>
         <Link to="/cennik">Cennik</Link>
       </li>
 
-      <li className={isMobileActive}>
+      <li>
         <Link to="/oNas">Przychodnia</Link>
       </li>
 
-      <li className={isMobileActive}>
+      <li>
         <Link to="/zespol">Zespół</Link>
       </li>
 
-      <li className={isMobileActive}>
+      <li>
         <Link to="/kontakt">Kontakt</Link>
       </li>
 
-      <li className={isMobileActive}>
-        <Link to="/rodo">RODO</Link>
-      </li>
-
-      <li className={isMobileActive}>
+      <li>
         <a href="https://sklep.nutrikon.pl/sklep/index.php">Sklep</a>
       </li>
     </MobileNav>

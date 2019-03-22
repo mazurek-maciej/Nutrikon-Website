@@ -123,17 +123,6 @@ class Navbar extends React.Component {
         </li>
 
         <li>
-          <Link
-            to="/rodo"
-            activeStyle={{
-              color: 'hsl(210,90%,43%)',
-            }}
-          >
-            RODO
-          </Link>
-        </li>
-
-        <li>
           <a href="https://sklep.nutrikon.pl/sklep/index.php">Sklep</a>
         </li>
       </HeaderNavigation>

@@ -59,17 +59,26 @@ const WiecejButton = styled(Link)`
     background: ${({ theme }) => theme.colors.$B6};
     color: #f2f2f2;
   }
-  /* @media (min-width: 481px) and (max-width: 767px) {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-  } */
   @media only screen and (min-width: 320px) and (max-width: 480px) {
     padding: 2px 12px;
     font-size: 16px;
   }
 `
 
-const MainCarousel = ({ img, settings }) => (
+const MainCarousel = ({ img, lectureImage }) => {
+  const settings = {
+      dots: true,
+      draggable: true,
+      infinite: true,
+      speed: 1000,
+      easing: 'ease-in',
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      fade: true,
+      autoplay: true,
+      autoplaySpeed: 5000,
+    }
+  return (
   <NoArrow>
     <Slider {...settings}>
       <div>
@@ -85,8 +94,21 @@ const MainCarousel = ({ img, settings }) => (
           </PromoWraper>
         </TextWraper>
       </div>
+      <div>
+        <HeroWrapper fluid={lectureImage} />
+        <TextWraper>
+          <PromoWraper>
+            <H1 big white>
+              Zapraszamy na X Opolskie Warsztaty Medyczne!
+            </H1>
+            <WiecejButton to="/x-opolskie-warsztaty-medyczne">
+              Sprawdź
+            </WiecejButton>
+          </PromoWraper>
+        </TextWraper>
+      </div>
     </Slider>
   </NoArrow>
-)
+)}
 
 export default MainCarousel
