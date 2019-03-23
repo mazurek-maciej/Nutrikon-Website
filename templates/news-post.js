@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Layout from '../components/Layout/layout'
 import Container from '../components/Container'
 import Section from '../components/Section'
+import SEO from '../components/seo'
 import BackgroundGradient from '../components/BackgroundGradient'
 import H1 from '../components/H1'
 
@@ -15,19 +16,29 @@ const Wraper = styled.div`
   justify-content: center;
   align-items: center;
 `
-const ContentPlaceholder = styled.div`
+const ContentPlaceholder = styled.article`
+  max-width: 900px;
+  width: 100%;
+  li {
+    list-style-type: decimal;
+    padding: 0.5rem;
+    margin: 0.5rem;
+  };
+  ol {
+    padding-left: 2rem;
+  }
   h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: ${({ theme }) => theme.colors.$secondary};
-  }
+  };
   p {
     margin-bottom: 0.5rem;
-  }
+  };
   @media only screen and (min-width: 320px) and (max-width: 480px) {
     h2 {
       font-size: 1.2rem;
-    }
+  }
   }
 `
 const Image = styled.img`
@@ -43,15 +54,18 @@ const GalleryWraper = styled.div`
   flex-wrap: wrap;
 `
 const BackButtonContainer = styled.div`
+  max-width: 900px;
   width: 100%;
   margin-top: 1rem;
 `
 
 class NewsPost extends Component {
   render() {
-    const { title, body } = this.props.data.contentfulAktualnosci
+    const { title, body, image } = this.props.data.contentfulAktualnosci
+    console.log(image)
     return (
       <Layout>
+        <SEO title={title} image={image.resize.src}/>
         <BackgroundGradient>
           <Section>
             <Container>

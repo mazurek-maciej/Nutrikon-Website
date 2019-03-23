@@ -2,14 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import defaultImage from '../images/nutrikon.jpg'
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, title, image }) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={data => {
         const metaDescription =
           description || data.site.siteMetadata.description
+        const ogImage = image || defaultImage
         return (
           <Helmet
             htmlAttributes={{
@@ -21,6 +23,10 @@ function SEO({ description, lang, meta, keywords, title }) {
               {
                 name: `description`,
                 content: metaDescription,
+              },
+              {
+                property: 'og:image',
+                content: ogImage,
               },
               {
                 property: `og:title`,
@@ -54,7 +60,7 @@ function SEO({ description, lang, meta, keywords, title }) {
 SEO.defaultProps = {
   lang: `pl-PL`,
   meta: [],
-  keywords: [],
+  keywords: ['nutrikon', 'przychodnia', 'evlt', 'zabiegi laserowe', 'mezoterapia'],
 }
 
 SEO.propTypes = {
