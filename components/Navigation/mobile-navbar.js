@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import posed from 'react-pose'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const MobileNav = posed.ul({
   open: {
@@ -19,54 +20,53 @@ const MobileNav = posed.ul({
 })
 
 const NavbarWraper = styled.div`
-    display: none;
+  display: none;
   @media only screen and (max-width: 1088px) {
-      display: ${props => props.active ? 'flex' : 'none'};
-      align-items: center;
+    display: ${props => (props.active ? 'flex' : 'none')};
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 1;
+    font-size: 1.5rem;
+    transition: all 0.2s linear;
+    position: sticky;
+    top: 0;
+    ul {
+      display: flex;
       flex-direction: column;
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-      margin: 0;
-      background-color: rgba(255, 255, 255, 0.9);
-      z-index: 1;
-      font-size: 1.5rem;
-      transition: all 0.2s linear;
-      position: sticky;
-      top: 0;
-      ul {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-      li {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: 10px 10px 10px 10px;
-        width: fit-content;
-        transition: all 0.2s;
-        cursor: pointer;
-      }
-      li:hover {
-        color: ${({ theme }) => theme.colors.$B6};
-      }
-      a {
-        color: #4a4a4a;
-      }
-      a:hover {
-        color: ${({ theme }) => theme.colors.$B6};
-      }
-      @media (min-width: 320px) and (max-width: 480px) {
-        font-size: 1.1rem;
-      }
-
+      justify-content: center;
+      align-items: center;
+    }
+    li {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 10px 10px 10px 10px;
+      width: fit-content;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    li:hover {
+      color: ${({ theme }) => theme.colors.$B6};
+    }
+    a {
+      color: #4a4a4a;
+    }
+    a:hover {
+      color: ${({ theme }) => theme.colors.$B6};
+    }
+    @media (min-width: 320px) and (max-width: 480px) {
+      font-size: 1.1rem;
+    }
   }
   @media only screen and (max-width: 1088px) {
     .drop-menu {
-      display: none 
+      display: none;
     }
   }
   .drop-menu-mobile {
@@ -98,7 +98,7 @@ const NavbarWraper = styled.div`
     }
   }
   .active {
-    display: flex 
+    display: flex;
   }
 `
 
@@ -109,16 +109,12 @@ const MobileNavbar = ({
   showToggleDropMobileNav,
 }) => (
   <NavbarWraper active={isMobileActive}>
-    <MobileNav
-      pose={isOpen ? 'open' : 'closed'}
-    >
+    <MobileNav pose={isOpen ? 'open' : 'closed'}>
       <li>
         <Link to="/">Strona Główna</Link>
       </li>
 
-      <li onClick={showToggleDropMobileNav}>
-        Poradnie
-      </li>
+      <li onClick={showToggleDropMobileNav}>Poradnie</li>
       <div>
         <ul className={`drop-menu-mobile ${isDropMobileActive}`}>
           <li>
@@ -176,5 +172,12 @@ const MobileNavbar = ({
     </MobileNav>
   </NavbarWraper>
 )
+
+MobileNavbar.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  isMobileActive: PropTypes.string.isRequired,
+  isDropMobileActive: PropTypes.string.isRequired,
+  showToggleDropMobileNav: PropTypes.func.isRequired,
+}
 
 export default MobileNavbar

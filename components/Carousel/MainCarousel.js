@@ -3,7 +3,9 @@ import Slider from 'react-slick'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { Link } from 'gatsby'
-import H1 from '../components/H1'
+import PropTypes from 'prop-types'
+
+import H1 from '../Tags/H1'
 
 const HeroWrapper = styled(Img)`
   position: absolute;
@@ -67,48 +69,54 @@ const WiecejButton = styled(Link)`
 
 const MainCarousel = ({ img, lectureImage }) => {
   const settings = {
-      dots: true,
-      draggable: true,
-      infinite: true,
-      speed: 1000,
-      easing: 'ease-in',
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      fade: true,
-      autoplay: true,
-      autoplaySpeed: 5000,
-    }
+    dots: true,
+    draggable: true,
+    infinite: true,
+    speed: 1000,
+    easing: 'ease-in',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+  }
   return (
-  <NoArrow>
-    <Slider {...settings}>
-      <div>
-        <HeroWrapper fluid={img} />
-        <TextWraper>
-          <PromoWraper>
-            <H1 big white>
-              Zapraszamy do zapoznania się naszą szeroką ofertą zabiegów
-            </H1>
-            <WiecejButton to="/zabiegi/laserowe-leczenie-żylaków-pniowych-evlt">
-              Sprawdź
-            </WiecejButton>
-          </PromoWraper>
-        </TextWraper>
-      </div>
-      <div>
-        <HeroWrapper fluid={lectureImage} />
-        <TextWraper>
-          <PromoWraper>
-            <H1 big white>
-              Zapraszamy na X Opolskie Warsztaty Medyczne!
-            </H1>
-            <WiecejButton to="/x-opolskie-warsztaty-medyczne">
-              Sprawdź
-            </WiecejButton>
-          </PromoWraper>
-        </TextWraper>
-      </div>
-    </Slider>
-  </NoArrow>
-)}
+    <NoArrow>
+      <Slider {...settings}>
+        <div>
+          <HeroWrapper fluid={img} />
+          <TextWraper>
+            <PromoWraper>
+              <H1 big white>
+                Zapraszamy do zapoznania się naszą szeroką ofertą zabiegów
+              </H1>
+              <WiecejButton to="/zabiegi/laserowe-leczenie-żylaków-pniowych-evlt">
+                Sprawdź
+              </WiecejButton>
+            </PromoWraper>
+          </TextWraper>
+        </div>
+        <div>
+          <HeroWrapper fluid={lectureImage} />
+          <TextWraper>
+            <PromoWraper>
+              <H1 big white>
+                Zapraszamy na X Opolskie Warsztaty Medyczne!
+              </H1>
+              <WiecejButton to="/x-opolskie-warsztaty-medyczne">
+                Sprawdź
+              </WiecejButton>
+            </PromoWraper>
+          </TextWraper>
+        </div>
+      </Slider>
+    </NoArrow>
+  )
+}
+
+MainCarousel.propTypes = {
+  img: PropTypes.object.isRequired,
+  lectureImage: PropTypes.object.isRequired,
+}
 
 export default MainCarousel

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import Navbar from '../Navigation/navbar'
 import MobileNavbar from '../Navigation/mobile-navbar'
 import PoradnieDropMenu from '../Navigation/poradnie-drop-menu'
 import OnasDropMenu from '../Navigation/onas-drop-menu'
-import styled from 'styled-components'
 import TopHeader from './top-header'
 
 const Nav = styled.nav`
@@ -28,7 +28,7 @@ const ButtonWraper = styled.div`
     align-items: center;
   }
 `
-const Button = styled.button `
+const Button = styled.button`
   border: transparent;
   background: transparent;
   font-size: 1.5rem;
@@ -58,11 +58,13 @@ class Index extends Component {
       isOnasActive: 'active',
     })
   }
+
   showTogglePoradnie = () => {
     this.setState({
       isPoradnieActive: 'active',
     })
   }
+
   showToggleDropMobileNav = () => {
     this.setState({
       isDropMobileActive: 'active',
@@ -71,7 +73,7 @@ class Index extends Component {
       this.setState({ isDropMobileActive: '' })
     }
   }
-  
+
   showToggleHamburger = () => {
     this.setState({
       isMobileActive: 'active',
@@ -86,8 +88,8 @@ class Index extends Component {
       })
     }
   }
-  
-  handleOutsideNavigationClick = (event) => {
+
+  handleOutsideNavigationClick = event => {
     if (
       this.state.isOnasActive === 'active' &&
       !this.toggleOnasActive.current.contains(event.target)
@@ -96,7 +98,7 @@ class Index extends Component {
         isOnasActive: '',
       })
     } else if (
-       this.state.isPoradnieActive === 'active' &&
+      this.state.isPoradnieActive === 'active' &&
       !this.togglePoradnieActive.current.contains(event.target)
     ) {
       this.setState({
@@ -111,7 +113,7 @@ class Index extends Component {
 
   render() {
     return (
-      <>
+      <React.Fragment>
         <TopHeader />
         <Nav>
           <Navbar
@@ -122,11 +124,8 @@ class Index extends Component {
           />
 
           <ButtonWraper>
-            <Button
-              onClick={this.showToggleHamburger}
-              type="button"
-            >
-              <i class="fas fa-bars"></i>
+            <Button onClick={this.showToggleHamburger} type="button">
+              <i className="fas fa-bars" />
             </Button>
           </ButtonWraper>
 
@@ -141,7 +140,7 @@ class Index extends Component {
 
           <OnasDropMenu isOnasActive={this.state.isOnasActive} />
         </Nav>
-      </>
+      </React.Fragment>
     )
   }
 }

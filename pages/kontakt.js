@@ -1,8 +1,8 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 
+import Fade from 'react-reveal/Fade'
 import Layout from '../components/Layout/layout'
-import Background from '../components/BackgroundGradient'
+import Background from '../components/Backgrounds/BackgroundGradient'
 import {
   Wraper,
   ContactWraper,
@@ -18,18 +18,16 @@ import {
 } from '../components/Kontakt/Wrapers'
 import { ContactButton } from '../components/Kontakt/ContactButton'
 import { MapContainer } from '../components/Kontakt/MapContainer'
-import H1 from '../components/H1'
-import H2 from '../components/H2'
+import H1 from '../components/Tags/H1'
+import H2 from '../components/Tags/H2'
 import SEO from '../components/seo'
-import Fade from 'react-reveal/Fade'
 
-const Kontakt = ({ data }) => (
+const Kontakt = () => (
   <Layout>
-    {console.log(data.przychodnia.childImageSharp.fluid)}
     <SEO
-      title={'Kontakt'}
+      title="Kontakt"
       keywords={['nutrikon, kontakt, Opole, Krakowska']}
-      lang={'pl/PL'}
+      lang="pl/PL"
     />
     <Background>
       <KontaktContainer className="container">
@@ -120,15 +118,3 @@ const Kontakt = ({ data }) => (
 )
 
 export default Kontakt
-
-export const pageQuery = graphql`
-  query {
-    przychodnia: file(relativePath: { eq: "nutrikon.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`

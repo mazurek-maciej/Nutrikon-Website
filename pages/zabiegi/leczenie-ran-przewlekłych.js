@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
 
 import Layout from '../../components/Layout/layout'
 import ZabiegiNav from '../../components/Navigation/zabiegi-nav'
-import H1 from '../../components/H1'
-import H2 from '../../components/H2'
-import BoxNeutralColor from '../../components/BoxNeutralColor'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import H1 from '../../components/Tags/H1'
+import H2 from '../../components/Tags/H2'
+import BoxNeutralColor from '../../components/Backgrounds/BoxNeutralColor'
 import SEO from '../../components/seo'
 import Section from '../../components/Section'
 import Container from '../../components/Container'
@@ -35,9 +35,9 @@ const Zabiegi = styled.div`
 const LeczenieRanPrzewleklych = ({ data }) => (
   <Layout>
     <SEO
-      title={'Leczenie ran przewlekłych'}
+      title="Leczenie ran przewlekłych"
       keywords={['rana przewlekła, ubytek tkanki, owrzodzenie, odleżyny']}
-      lang={'pl/PL'}
+      lang="pl/PL"
     />
     <HeroZabiegi fluid={data.zabieg.childImageSharp.fluid} />
     <Zabiegi>
@@ -134,6 +134,10 @@ const LeczenieRanPrzewleklych = ({ data }) => (
     </Zabiegi>
   </Layout>
 )
+
+LeczenieRanPrzewleklych.propTypes = {
+  data: PropTypes.object.isRequired,
+}
 
 export default LeczenieRanPrzewleklych
 

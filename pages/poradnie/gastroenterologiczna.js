@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { graphql, Link } from 'gatsby'
+import PropTypes from 'prop-types'
+
 import Image from 'gatsby-image'
 import styled from 'styled-components'
 import Layout from '../../components/Layout/layout'
-import H1 from '../../components/H1'
-import H2 from '../../components/H2'
-import BoxNegativeColor from '../../components/BoxNegativeColor'
-import BoxNeutralColor from '../../components/BoxNeutralColor'
-import BackgroundGradient from '../../components/BackgroundGradient'
+import H1 from '../../components/Tags/H1'
+import H2 from '../../components/Tags/H2'
+import BoxNegativeColor from '../../components/Backgrounds/BoxNegativeColor'
+import BoxNeutralColor from '../../components/Backgrounds/BoxNeutralColor'
+import BackgroundGradient from '../../components/Backgrounds/BackgroundGradient'
 import DoctorInfo from '../../components/DoctorInfoIcon'
 import SEO from '../../components/seo'
 import Section from '../../components/Section'
@@ -42,11 +44,11 @@ class Index extends Component {
     return (
       <Layout>
         <SEO
-          title={'Poradnia Gastroenterologiczna'}
+          title="Poradnia Gastroenterologiczna"
           keywords={[
             'poradnia gastroenterologiczna, choroby przewodu pokarmowego, leczenie trzustki',
           ]}
-          lang={'pl/PL'}
+          lang="pl/PL"
         />
         <HeroPoradnie fluid={data.poradnieImage.childImageSharp.fluid} />
         <BackgroundGradient>
@@ -153,6 +155,11 @@ class Index extends Component {
     )
   }
 }
+
+Index.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+
 export default Index
 
 export const pageQuery = graphql`

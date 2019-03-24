@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 import SEO from '../components/seo'
 import Layout from '../components/Layout/layout'
-
 
 const Wraper = styled.div`
   display: flex;
@@ -40,9 +40,9 @@ const Rodo = ({ data }) => {
   return (
     <Layout>
       <SEO
-        title={'RODO'}
+        title="RODO"
         keywords={['Nutrikon, przychodnia opole, rodo']}
-        lang={'pl/PL'}
+        lang="pl/PL"
       />
       <Wraper>
         <ContentWraper>
@@ -52,6 +52,11 @@ const Rodo = ({ data }) => {
     </Layout>
   )
 }
+
+Rodo.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+
 export default Rodo
 
 export const pageQuery = graphql`

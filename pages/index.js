@@ -1,17 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
+import Fade from 'react-reveal/Fade'
 import SEO from '../components/seo'
-import MainCarousel from '../components/MainCarousel'
+import MainCarousel from '../components/Carousel/MainCarousel'
 import Layout from '../components/Layout/layout'
-import BackgroundIndex from '../components/BackgroundGradient'
+import BackgroundIndex from '../components/Backgrounds/BackgroundGradient'
 import News from '../components/news'
 import logo from '../images/Nutrikon_Logo.svg'
 import ZabiegiPromo from '../components/PromoTiles'
-import H1 from '../components/H1'
-import H2 from '../components/H2'
-import Fade from 'react-reveal/Fade'
+import H1 from '../components/Tags/H1'
+import H2 from '../components/Tags/H2'
 import Section from '../components/Section'
 import Container from '../components/Container'
 
@@ -52,63 +53,63 @@ const NewsWraper = styled.div`
   justify-content: center;
   align-items: center;
 `
-export default class IndexPage extends React.Component {
-  render() {
-    
-    const posts = this.props.data.allContentfulAktualnosci.edges
-      .slice(0, 4)
-      .map(edge => edge.node)
-    
-    console.log(this.props)
-    return (
-      <Layout>
-        <SEO
-          title={'Strona główna'}
-          keywords={[
-            'Nutrikon, przychodnia opole, zabiegi opole, lekarz opole, mezoterapia, skleroterapia, laserowe leczenie elvt, fachowa pomoc',
-          ]}
-          lang={'pl/PL'}
-        />
-        <MainCarousel
-          img={this.props.data.heroImage.childImageSharp.fluid}
-          lectureImage={this.props.data.lectureImage.childImageSharp.fluid}
-        />
-        <main>
-          <BackgroundIndex>
-            <Section>
-              <Container>
-                <Fade big>
-                  <TextWraper>
-                    <TextContainer>
-                      <Logo src={logo} alt="Nutrikon logo" />
-                      <H1 big>Przychodnia Nutrikon</H1>
-                    </TextContainer>
-                    <H2 big>
-                      Traktujemy naszych Pacjentów z najwyższą troską oraz
-                      zapewniamy fachową pomoc w wielu dziedzinach
-                    </H2>
-                  </TextWraper>
-                </Fade>
-              </Container>
-              <Container>
-                <Fade>
-                  <ZabiegiPromo />
-                </Fade>
-              </Container>
-            </Section>
-            <section className="section">
-              <Fade>
-                <NewsWraper ref={this.myRef}>
-                  <H2 big>Aktualności</H2>
-                  <News posts={posts} />
-                </NewsWraper>
+export default function IndexPage({ data }) {
+  const posts = data.allContentfulAktualnosci.edges
+    .slice(0, 4)
+    .map(edge => edge.node)
+
+  return (
+    <Layout>
+      <SEO
+        title="Strona główna"
+        keywords={[
+          'Nutrikon, przychodnia opole, zabiegi opole, lekarz opole, mezoterapia, skleroterapia, laserowe leczenie elvt, fachowa pomoc',
+        ]}
+        lang="pl/PL"
+      />
+      <MainCarousel
+        img={data.heroImage.childImageSharp.fluid}
+        lectureImage={data.lectureImage.childImageSharp.fluid}
+      />
+      <main>
+        <BackgroundIndex>
+          <Section>
+            <Container>
+              <Fade big>
+                <TextWraper>
+                  <TextContainer>
+                    <Logo src={logo} alt="Nutrikon logo" />
+                    <H1 big>Przychodnia Nutrikon</H1>
+                  </TextContainer>
+                  <H2 big>
+                    Traktujemy naszych Pacjentów z najwyższą troską oraz
+                    zapewniamy fachową pomoc w wielu dziedzinach
+                  </H2>
+                </TextWraper>
               </Fade>
-            </section>
-          </BackgroundIndex>
-        </main>
-      </Layout>
-    )
-  }
+            </Container>
+            <Container>
+              <Fade>
+                <ZabiegiPromo />
+              </Fade>
+            </Container>
+          </Section>
+          <section className="section">
+            <Fade>
+              <NewsWraper>
+                <H2 big>Aktualności</H2>
+                <News posts={posts} />
+              </NewsWraper>
+            </Fade>
+          </section>
+        </BackgroundIndex>
+      </main>
+    </Layout>
+  )
+}
+
+IndexPage.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 export const pageQuery = graphql`
@@ -120,7 +121,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulAktualnosci(sort: {fields: publishDate, order: DESC}) {
+    allContentfulAktualnosci(sort: { fields: publishDate, order: DESC }) {
       edges {
         node {
           title

@@ -1,21 +1,21 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import Layout from '../../components/Layout/layout'
 import ZabiegiNav from '../../components/Navigation/zabiegi-nav'
-import styled from 'styled-components'
-import BoxNegativeColor from '../../components/BoxNegativeColor'
-import BoxNeutralColor from '../../components/BoxNeutralColor'
-import BoxPositiveColor from '../../components/BoxPositiveColor'
-import H1 from '../../components/H1'
-import H2 from '../../components/H2'
+import BoxNegativeColor from '../../components/Backgrounds/BoxNegativeColor'
+import BoxNeutralColor from '../../components/Backgrounds/BoxNeutralColor'
+import BoxPositiveColor from '../../components/Backgrounds/BoxPositiveColor'
+import H1 from '../../components/Tags/H1'
+import H2 from '../../components/Tags/H2'
+import Li from '../../components/Tags/Li'
 import Red from '../../components/Red'
 import Green from '../../components/Green'
-import Li from '../../components/Li'
 import heartImg from '../../images/heart.svg'
 import stopImg from '../../images/no-stopping.svg'
-import Img from 'gatsby-image'
-import { graphql } from 'gatsby'
 import SEO from '../../components/seo'
 import Section from '../../components/Section'
 import Container from '../../components/Container'
@@ -39,14 +39,14 @@ const Zabiegi = styled.div`
   }
 `
 
-const LaseroweLeczenieELVT = ({ data }) => (
+const LaseroweLeczenieEVLT = ({ data }) => (
   <Layout>
     <SEO
-      title={'Laserowe leczenie żylaków pniowych ELVT'}
+      title="Laserowe leczenie żylaków pniowych ELVT"
       keywords={[
         'leczenie żylaków pniowych, laserowe leczenie elvt, żylaki kończyn, żylaki, naczynia żylne',
       ]}
-      lang={'pl/PL'}
+      lang="pl/PL"
     />
     <HeroZabiegi fluid={data.zabieg.childImageSharp.fluid} />
     <Zabiegi>
@@ -272,7 +272,11 @@ const LaseroweLeczenieELVT = ({ data }) => (
   </Layout>
 )
 
-export default LaseroweLeczenieELVT
+LaseroweLeczenieEVLT.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+
+export default LaseroweLeczenieEVLT
 
 export const pageQuery = graphql`
   query {

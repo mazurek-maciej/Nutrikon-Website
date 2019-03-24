@@ -1,20 +1,20 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
+import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
 
 import Layout from '../../components/Layout/layout'
 import ZabiegiNav from '../../components/Navigation/zabiegi-nav'
-import styled from 'styled-components'
 import heartImg from '../../images/heart.svg'
 import stopImg from '../../images/no-stopping.svg'
-import BoxNeutralColor from '../../components/BoxNeutralColor'
-import BoxNegativeColor from '../../components/BoxNegativeColor'
-import BoxPositiveColor from '../../components/BoxPositiveColor'
-import H1 from '../../components/H1'
-import H2 from '../../components/H2'
+import BoxNeutralColor from '../../components/Backgrounds/BoxNeutralColor'
+import BoxNegativeColor from '../../components/Backgrounds/BoxNegativeColor'
+import BoxPositiveColor from '../../components/Backgrounds/BoxPositiveColor'
+import H1 from '../../components/Tags/H1'
+import H2 from '../../components/Tags/H2'
+import Li from '../../components/Tags/Li'
 import Red from '../../components/Red'
-import Li from '../../components/Li'
-import Img from 'gatsby-image'
-import { graphql } from 'gatsby'
 import SEO from '../../components/seo'
 import Section from '../../components/Section'
 import Container from '../../components/Container'
@@ -49,9 +49,9 @@ const BS = styled.h2`
 const LaseroweOdladzanieSkory = ({ data }) => (
   <Layout>
     <SEO
-      title={'Laserowe usuwanie blizn i odmładzania skóry'}
+      title="Laserowe usuwanie blizn i odmładzania skóry"
       keywords={['usuwanie blizn, odmładzanie skóry, regeneracja skóry']}
-      lang={'pl/PL'}
+      lang="pl/PL"
     />
     <HeroZabiegi fluid={data.zabiegiImage.childImageSharp.fluid} />
     <Zabiegi>
@@ -231,6 +231,10 @@ const LaseroweOdladzanieSkory = ({ data }) => (
     </Zabiegi>
   </Layout>
 )
+
+LaseroweOdladzanieSkory.propTypes = {
+  data: PropTypes.object.isRequired,
+}
 
 export default LaseroweOdladzanieSkory
 

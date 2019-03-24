@@ -1,19 +1,19 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
+import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
 
 import Layout from '../../components/Layout/layout'
 import ZabiegiNav from '../../components/Navigation/zabiegi-nav'
-import styled from 'styled-components'
 import stopImg from '../../images/no-stopping.svg'
-import H1 from '../../components/H1'
-import H2 from '../../components/H2'
+import H1 from '../../components/Tags/H1'
+import H2 from '../../components/Tags/H2'
+import Li from '../../components/Tags/Li'
 import Red from '../../components/Red'
-import BoxNegativeColor from '../../components/BoxNegativeColor'
-import BoxPositiveColor from '../../components/BoxPositiveColor'
-import BoxNeutralColor from '../../components/BoxNeutralColor'
-import Li from '../../components/Li'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import BoxNegativeColor from '../../components/Backgrounds/BoxNegativeColor'
+import BoxPositiveColor from '../../components/Backgrounds/BoxPositiveColor'
+import BoxNeutralColor from '../../components/Backgrounds/BoxNeutralColor'
 import SEO from '../../components/seo'
 import Section from '../../components/Section'
 import Container from '../../components/Container'
@@ -40,9 +40,9 @@ const Zabiegi = styled.div`
 const UsuwanieZmianSkornych = ({ data }) => (
   <Layout>
     <SEO
-      title={'Nutrikon | Usuwanie zmian skórnych z okolicy sromu i krocza'}
+      title="Nutrikon | Usuwanie zmian skórnych z okolicy sromu i krocza"
       keywords={['zmiany skrórne, okolice sromu, polipy, włókniaki, kłykciny']}
-      lang={'pl/PL'}
+      lang="pl/PL"
     />
     <HeroZabiegi fluid={data.zabieg.childImageSharp.fluid} />
     <Zabiegi>
@@ -172,6 +172,10 @@ const UsuwanieZmianSkornych = ({ data }) => (
     </Zabiegi>
   </Layout>
 )
+
+UsuwanieZmianSkornych.propTypes = {
+  data: PropTypes.object.isRequired,
+}
 
 export default UsuwanieZmianSkornych
 

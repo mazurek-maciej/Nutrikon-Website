@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import shape from '../images/adv-shape-v3.svg'
 import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+
+import shape from '../../images/adv-shape-v3.svg'
 
 const TileWraper = styled.div`
   flex: 1;
@@ -79,5 +81,11 @@ const Tile = ({ text, destination, img }) => (
     </BottomWraper>
   </TileWraper>
 )
+
+Tile.propTypes = {
+  text: PropTypes.string.isRequired,
+  destination: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+}
 
 export default Tile

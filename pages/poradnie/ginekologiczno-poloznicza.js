@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import { graphql, Link } from 'gatsby'
+import PropTypes from 'prop-types'
+
 import Image from 'gatsby-image'
 import styled from 'styled-components'
 import Layout from '../../components/Layout/layout'
 import PoradnieNav from '../../components/Navigation/poradnie-nav'
-import H2 from '../../components/H2'
-import H1 from '../../components/H1'
-import BoxNegativeColor from '../../components/BoxNegativeColor'
-import BoxNeutralColor from '../../components/BoxNeutralColor'
-import BackgroundGradient from '../../components/BackgroundGradient'
+import H2 from '../../components/Tags/H2'
+import H1 from '../../components/Tags/H1'
+import BoxNegativeColor from '../../components/Backgrounds/BoxNegativeColor'
+import BoxNeutralColor from '../../components/Backgrounds/BoxNeutralColor'
+import BackgroundGradient from '../../components/Backgrounds/BackgroundGradient'
 import Scroll from '../../components/Scroll'
 import DoctorInfo from '../../components/DoctorInfoIcon'
 import SEO from '../../components/seo'
@@ -50,11 +52,11 @@ class Index extends Component {
     return (
       <Layout>
         <SEO
-          title={'Poradnia Ginekologiczno-Położnicza'}
+          title="Poradnia Ginekologiczno-Położnicza"
           keywords={[
             'poradnia ginekologiczna, usługi ginekologiczne, położnictwo',
           ]}
-          lang={'pl/PL'}
+          lang="pl/PL"
         />
         <HeroPoradnie fluid={data.poradnieImage.childImageSharp.fluid} />
         <BackgroundGradient>
@@ -250,6 +252,10 @@ class Index extends Component {
       </Layout>
     )
   }
+}
+
+Index.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 export default Index

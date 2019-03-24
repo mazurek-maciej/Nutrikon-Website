@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
 import replacmentImage from '../images/backgroundLogo.jpg'
-import H2 from './H2'
+import H2 from './Tags/H2'
 import Container from './Container'
 
 const Wraper = styled.div`
@@ -59,5 +60,9 @@ const News = ({ posts }) => (
     </Container>
   </Wraper>
 )
+
+News.propTypes = {
+  posts: PropTypes.array.isRequired,
+}
 
 export default News

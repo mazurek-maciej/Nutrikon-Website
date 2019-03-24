@@ -1,17 +1,17 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import styled from 'styled-components'
 
 import Layout from '../../components/Layout/layout'
 import ZabiegiNav from '../../components/Navigation/zabiegi-nav'
-import styled from 'styled-components'
-import H1 from '../../components/H1'
-import H2 from '../../components/H2'
+import H1 from '../../components/Tags/H1'
+import H2 from '../../components/Tags/H2'
+import Li from '../../components/Tags/Li'
 import Red from '../../components/Red'
 import Green from '../../components/Green'
-import Li from '../../components/Li'
-import BoxNeutralColor from '../../components/BoxNeutralColor'
-import BoxNegativeColor from '../../components/BoxNegativeColor'
-import BoxPositiveColor from '../../components/BoxPositiveColor'
+import BoxNeutralColor from '../../components/Backgrounds/BoxNeutralColor'
+import BoxNegativeColor from '../../components/Backgrounds/BoxNegativeColor'
+import BoxPositiveColor from '../../components/Backgrounds/BoxPositiveColor'
 import heartImg from '../../images/heart.svg'
 import heroImg from '../../images/mezoterapia.jpg'
 import SEO from '../../components/seo'
@@ -35,11 +35,11 @@ const Zabiegi = styled.div`
 const LaseroweUsuwanieBrodawek = () => (
   <Layout>
     <SEO
-      title={'Laserowe usuwanie brodawek i znamion'}
+      title="Laserowe usuwanie brodawek i znamion"
       keywords={[
         'usuwanie znamion, usuwanie brodawek, usuwanie pieprzyków, znamię, brodawka',
       ]}
-      lang={'pl/PL'}
+      lang="pl/PL"
     />
     <Hero />
     <Zabiegi>

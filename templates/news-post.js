@@ -7,8 +7,8 @@ import Layout from '../components/Layout/layout'
 import Container from '../components/Container'
 import Section from '../components/Section'
 import SEO from '../components/seo'
-import BackgroundGradient from '../components/BackgroundGradient'
-import H1 from '../components/H1'
+import BackgroundGradient from '../components/Backgrounds/BackgroundGradient'
+import H1 from '../components/Tags/H1'
 
 const Wraper = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ const ContentPlaceholder = styled.article`
     list-style-type: decimal;
     padding: 0.5rem;
     margin: 0.5rem;
-  };
+  }
   ol {
     padding-left: 2rem;
   }
@@ -31,14 +31,14 @@ const ContentPlaceholder = styled.article`
     font-size: 2rem;
     margin-bottom: 1rem;
     color: ${({ theme }) => theme.colors.$secondary};
-  };
+  }
   p {
     margin-bottom: 0.5rem;
-  };
+  }
   @media only screen and (min-width: 320px) and (max-width: 480px) {
     h2 {
       font-size: 1.2rem;
-  }
+    }
   }
 `
 const Image = styled.img`
@@ -65,7 +65,7 @@ class NewsPost extends Component {
     console.log(image)
     return (
       <Layout>
-        <SEO title={title} image={image.resize.src}/>
+        <SEO title={title} image={image.resize.src} />
         <BackgroundGradient>
           <Section>
             <Container>
@@ -91,6 +91,7 @@ class NewsPost extends Component {
       </Layout>
     )
   }
+
   displayImage = () => {
     const alt = this.props.data.contentfulAktualnosci.slug
     if (this.props.data.contentfulAktualnosci.image) {
@@ -102,22 +103,23 @@ class NewsPost extends Component {
       )
     }
   }
+
   displayGallery = () => {
     const alt = this.props.data.contentfulAktualnosci.slug
     if (this.props.data.contentfulAktualnosci.gallery) {
-      let gallery = this.props.data.contentfulAktualnosci.gallery
+      const gallery = this.props.data.contentfulAktualnosci.gallery
       return (
         <GalleryWraper>
           {gallery.map(post => (
             <ImageZoom
               image={{
                 src: post.resize.src,
-                alt: alt,
+                alt,
                 style: { width: '400px', height: '300px', padding: '1rem' },
               }}
               zoomImage={{
                 src: post.resize.src,
-                alt: alt,
+                alt,
               }}
             />
           ))}

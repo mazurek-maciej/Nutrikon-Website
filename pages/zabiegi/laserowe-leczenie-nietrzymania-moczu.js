@@ -1,19 +1,19 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
+import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
 
 import Layout from '../../components/Layout/layout'
 import ZabiegiNav from '../../components/Navigation/zabiegi-nav'
-import styled from 'styled-components'
 import stopImg from '../../images/no-stopping.svg'
-import H1 from '../../components/H1'
-import H2 from '../../components/H2'
+import H1 from '../../components/Tags/H1'
+import H2 from '../../components/Tags/H2'
+import Li from '../../components/Tags/Li'
 import Red from '../../components/Red'
-import Li from '../../components/Li'
-import BoxNeutralColor from '../../components/BoxNeutralColor'
-import BoxNegativeColor from '../../components/BoxNegativeColor'
-import BoxPositiveColor from '../../components/BoxPositiveColor'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import BoxNeutralColor from '../../components/Backgrounds/BoxNeutralColor'
+import BoxNegativeColor from '../../components/Backgrounds/BoxNegativeColor'
+import BoxPositiveColor from '../../components/Backgrounds/BoxPositiveColor'
 import SEO from '../../components/seo'
 import Section from '../../components/Section'
 import Container from '../../components/Container'
@@ -47,11 +47,11 @@ const Zabiegi = styled.div`
 const LaseroweLeczenieNietrzymania = ({ data }) => (
   <Layout>
     <SEO
-      title={'Laserowe leczenie nietrzymania moczu'}
+      title="Laserowe leczenie nietrzymania moczu"
       keywords={[
         'nietrzymanie moczu, leczenie nietrzymania moczu, niemożliwość trzymania moczu',
       ]}
-      lang={'pl/PL'}
+      lang="pl/PL"
     />
     <HeroZabiegi fluid={data.zabieg.childImageSharp.fluid} />
     <Zabiegi>
@@ -215,6 +215,10 @@ const LaseroweLeczenieNietrzymania = ({ data }) => (
     </Zabiegi>
   </Layout>
 )
+
+LaseroweLeczenieNietrzymania.propTypes = {
+  data: PropTypes.object.isRequired,
+}
 
 export default LaseroweLeczenieNietrzymania
 

@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import { graphql, Link } from 'gatsby'
+import PropTypes from 'prop-types'
+
 import Image from 'gatsby-image'
 import styled from 'styled-components'
 import Layout from '../../components/Layout/layout'
 import PoradnieNav from '../../components/Navigation/poradnie-nav'
-import H1 from '../../components/H1'
-import H2 from '../../components/H2'
-import BoxNegativeColor from '../../components/BoxNegativeColor'
-import BoxNeutralColor from '../../components/BoxNeutralColor'
-import BackgroundGradient from '../../components/BackgroundGradient'
+import H1 from '../../components/Tags/H1'
+import H2 from '../../components/Tags/H2'
+import BoxNegativeColor from '../../components/Backgrounds/BoxNegativeColor'
+import BoxNeutralColor from '../../components/Backgrounds/BoxNeutralColor'
+import BackgroundGradient from '../../components/Backgrounds/BackgroundGradient'
 import DoctorInfo from '../../components/DoctorInfoIcon'
 import Scroll from '../../components/Scroll'
 import SEO from '../../components/seo'
@@ -44,17 +46,19 @@ class Index extends Component {
     super(props)
     this.myRef = React.createRef()
   }
+
   scrollTo = () => this.myRef.current.scrollIntoView({ behavior: 'smooth' })
+
   render() {
     const { data } = this.props
     return (
       <Layout>
         <SEO
-          title={'Poradnia Chirurgii Ogólnej'}
+          title="Poradnia Chirurgii Ogólnej"
           keywords={[
             'poradnia chirugi, chirurgia ogólna, zabiegi chirurgiczne',
           ]}
-          lang={'pl/PL'}
+          lang="pl/PL"
         />
         <HeroPoradnie fluid={data.poradnieImage.childImageSharp.fluid} />
         <BackgroundGradient>
@@ -200,6 +204,10 @@ class Index extends Component {
       </Layout>
     )
   }
+}
+
+Index.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 export default Index

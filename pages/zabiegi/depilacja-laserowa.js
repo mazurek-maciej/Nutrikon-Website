@@ -1,17 +1,19 @@
 import React from 'react'
-import Layout from '../../components/Layout/layout'
-import ZabiegiNav from '../../components/Navigation/zabiegi-nav'
 import styled from 'styled-components'
-import stopImg from '../../images/no-stopping.svg'
-import H1 from '../../components/H1'
-import H2 from '../../components/H2'
-import BoxNegativeColor from '../../components/BoxNegativeColor'
-import BoxPositiveColor from '../../components/BoxPositiveColor'
-import Red from '../../components/Red'
-import Green from '../../components/Green'
-import Li from '../../components/Li'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
+
+import Layout from '../../components/Layout/layout'
+import ZabiegiNav from '../../components/Navigation/zabiegi-nav'
+import stopImg from '../../images/no-stopping.svg'
+import H1 from '../../components/Tags/H1'
+import H2 from '../../components/Tags/H2'
+import Li from '../../components/Tags/Li'
+import BoxNegativeColor from '../../components/Backgrounds/BoxNegativeColor'
+import BoxPositiveColor from '../../components/Backgrounds/BoxPositiveColor'
+import Red from '../../components/Red'
+import Green from '../../components/Green'
 import SEO from '../../components/seo'
 import Section from '../../components/Section'
 import Container from '../../components/Container'
@@ -45,11 +47,11 @@ const Zabiegi = styled.div`
 const DepilacjaLaserowa = ({ data }) => (
   <Layout>
     <SEO
-      title={'Depilacja laserowa'}
+      title="Depilacja laserowa"
       keywords={[
         'depilacja laserowa, depilacja, laser neodymowy, włosy, skóra',
       ]}
-      lang={'pl/PL'}
+      lang="pl/PL"
     />
     <HeroZabiegi fluid={data.zabiegiImage.childImageSharp.fluid} />
     <Zabiegi>
@@ -237,6 +239,10 @@ const DepilacjaLaserowa = ({ data }) => (
     </Zabiegi>
   </Layout>
 )
+
+DepilacjaLaserowa.propTypes = {
+  data: PropTypes.object.isRequired,
+}
 
 export default DepilacjaLaserowa
 

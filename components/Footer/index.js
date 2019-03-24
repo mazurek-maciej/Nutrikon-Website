@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { colors } from '../../utils/colors'
-import H2 from '../../components/H2'
+import H2 from '../Tags/H2'
 
 const FooterMainContainer = styled.div`
   background-color: hsl(210, 20%, 98%);

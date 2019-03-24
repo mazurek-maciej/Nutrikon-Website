@@ -1,15 +1,16 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Collapsible from 'react-collapsible'
+import Fade from 'react-reveal/Fade'
 
 import SEO from '../components/seo'
 import { naglowki } from '../utils/cennik-naglowki'
 import Layout from '../components/Layout/layout'
-import BackgroundGradient from '../components/BackgroundGradient'
-import H1 from '../components/H1'
+import BackgroundGradient from '../components/Backgrounds/BackgroundGradient'
+import H1 from '../components/Tags/H1'
 import Underline from '../components/Underline'
-import Fade from 'react-reveal/Fade'
 import Section from '../components/Section'
 import CennikTable from '../components/CennikTable'
 
@@ -57,11 +58,11 @@ const CennikHeadings = styled.div`
 const Cennik = ({ data }) => (
   <Layout>
     <SEO
-      title={'Cennik'}
+      title="Cennik"
       keywords={[
         'mezoterapia, przychodnia, skleroterapia, elvt, cennik, zabiegi',
       ]}
-      lang={'pl/PL'}
+      lang="pl/PL"
     />
     <BackgroundGradient>
       <Section>
@@ -70,7 +71,7 @@ const Cennik = ({ data }) => (
             <H1>Cennik Naszej Przychodni</H1>
             <Underline short red />
             <CollapsibleContainer>
-              <Collapsible open={true} trigger={heds(naglowki[0])}>
+              <Collapsible open trigger={heds(naglowki[0])}>
                 <CennikTable zabieg={data.utilsJson.Zabiegi1} />
               </Collapsible>
               <Collapsible trigger={heds(naglowki[1])}>
@@ -102,7 +103,6 @@ const Cennik = ({ data }) => (
   </Layout>
 )
 
-// Funkcja zwracająca nagłówki w tabelach
 function heds(name) {
   return (
     <CennikHeadings>
@@ -158,4 +158,9 @@ export const IndexQuery = graphql`
     }
   }
 `
+
+Cennik.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+
 export default Cennik

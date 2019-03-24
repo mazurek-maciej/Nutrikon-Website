@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import H2 from '../H2'
+import H2 from '../Tags/H2'
 import img from '../../images/Nutrikon_Logo.svg'
 
 const Navbar = styled.nav`
