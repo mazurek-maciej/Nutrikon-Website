@@ -21,8 +21,9 @@ const MobileNav = posed.ul({
 
 const NavbarWraper = styled.div`
   display: none;
-  @media only screen and (max-width: 1088px) {
+  ${({ theme }) => theme.media.tablet`
     display: ${props => (props.active ? 'flex' : 'none')};
+    color: ${theme.colors.$paragraph};
     align-items: center;
     flex-direction: column;
     position: absolute;
@@ -35,6 +36,16 @@ const NavbarWraper = styled.div`
     transition: all 0.2s linear;
     position: sticky;
     top: 0;
+    button {
+      background: transparent;
+      border: transparent;
+      font-size: 1.5rem;
+      margin: 10px;
+      color: ${theme.colors.$paragraph};
+      :hover {
+        color: ${theme.colors.$B6};
+      }
+    }
     ul {
       display: flex;
       flex-direction: column;
@@ -46,29 +57,29 @@ const NavbarWraper = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin: 10px 10px 10px 10px;
+      margin: 10px;
       width: fit-content;
       transition: all 0.2s;
       cursor: pointer;
     }
     li:hover {
-      color: ${({ theme }) => theme.colors.$B6};
+      color: ${theme.colors.$B6};
     }
     a {
       color: #4a4a4a;
     }
     a:hover {
-      color: ${({ theme }) => theme.colors.$B6};
+      color: ${theme.colors.$B6};
     }
-    @media (min-width: 320px) and (max-width: 480px) {
-      font-size: 1.1rem;
-    }
-  }
-  @media only screen and (max-width: 1088px) {
     .drop-menu {
       display: none;
     }
-  }
+  `}
+  ${({ theme }) => theme.media.phone`
+      font-size: 1.1rem;
+  
+  `}
+
   .drop-menu-mobile {
     display: none;
     align-items: center;
@@ -114,7 +125,9 @@ const MobileNavbar = ({
         <Link to="/">Strona Główna</Link>
       </li>
 
-      <li onClick={showToggleDropMobileNav}>Poradnie</li>
+      <button type="button" onClick={showToggleDropMobileNav}>
+        Poradnie
+      </button>
       <div>
         <ul className={`drop-menu-mobile ${isDropMobileActive}`}>
           <li>

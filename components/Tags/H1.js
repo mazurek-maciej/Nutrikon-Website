@@ -20,6 +20,7 @@ const H1 = styled.h1`
     font-size: ${({ big, small }) =>
       big ? '2rem' : small ? '1.2rem' : '1.5rem'};
   }
+  text-align: ${props => props.align};
 `
 
 export default H1

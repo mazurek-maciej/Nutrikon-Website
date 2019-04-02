@@ -1,11 +1,13 @@
-import { colors } from "./colors";
+import { colors } from './colors'
+import { media } from './media'
 
 export const theme = {
   colors,
+  media,
   font: {
     thin: 300,
     regular: 400,
-    bold: 800
+    bold: 800,
   },
-  heading: 'Montserrat'
-};
+  heading: 'Montserrat',
+}

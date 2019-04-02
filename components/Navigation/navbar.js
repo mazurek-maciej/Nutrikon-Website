@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
@@ -13,121 +14,127 @@ const HeaderNavigation = styled.ul`
   box-shadow: 0px 10px 25px -16px rgba(0, 0, 0, 0.3);
   background-color: ${({ theme }) => theme.colors.$white};
   margin: 0;
-  li {
-    width: 180px;
-    height: 48px;
-    list-style: none;
-    margin: 0;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  ul {
-    margin: 0;
-  }
-  li a {
-    transition: all 0.2s;
-    color: ${({ theme }) => theme.colors.$G3};
-    .acitve {
-      color: ${({ theme }) => theme.colors.$B6};
-    }
-  }
-  li:hover a {
-    color: ${({ theme }) => theme.colors.$B6};
-  }
-  li:hover {
-    border-bottom: 2px solid ${({ theme }) => theme.colors.$B6};
-    color: ${({ theme }) => theme.colors.$B6};
-  }
-  @media only screen and (max-width: 1088px) {
+`
+const NavbarButton = styled.button`
+  font-size: 24px;
+  color: ${({ theme }) => theme.colors.$paragraph};
+  padding: 1rem;
+  margin: 0 8px;
+  background: transparent;
+  border: 2px solid transparent;
+  ${({ theme }) => theme.media.tablet`
     display: none;
+  `}
+  & :hover {
+    color: ${({ theme }) => theme.colors.$B6};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.$B6};
+    cursor: pointer;
+  }
+`
+const NavbarLi = styled.li`
+  font-size: 24px;
+  padding: 1rem;
+  margin: 0 8px;
+  background: transparent;
+  border: 2px solid transparent;
+  ${({ theme }) => theme.media.tablet`
+    display: none;
+  `}
+  &:hover {
+    border-bottom: 2px solid ${({ theme }) => theme.colors.$B6};
+  }
+  & > a {
+    color: ${({ theme }) => theme.colors.$paragraph};
+  }
+  & :hover > a {
+    color: ${({ theme }) => theme.colors.$B6};
   }
 `
 
-class Navbar extends React.Component {
-  state = {
-    active: false,
-  }
+const Navbar = ({
+  refOnas,
+  refPoradnie,
+  showToggleOnas,
+  showTogglePoradnie,
+}) => (
+  <HeaderNavigation>
+    <NavbarLi>
+      <Link
+        to="/"
+        activeStyle={{
+          color: 'hsl(210,90%,43%)',
+        }}
+      >
+        Strona Główna
+      </Link>
+    </NavbarLi>
 
-  render() {
-    const {
-      showTogglePoradnie,
-      showToggleOnas,
-      refOnas,
-      refPoradnie,
-    } = this.props
-    return (
-      <HeaderNavigation>
-        <li>
-          <Link
-            to="/"
-            activeStyle={{
-              color: 'hsl(210,90%,43%)',
-            }}
-          >
-            Strona Główna
-          </Link>
-        </li>
+    <NavbarButton
+      type="button"
+      ref={refPoradnie}
+      onClick={showTogglePoradnie}
+      activeStyle={{
+        color: 'hsl(210,90%,43%)',
+      }}
+    >
+      Poradnie
+    </NavbarButton>
 
-        <li
-          ref={refPoradnie}
-          onClick={showTogglePoradnie}
-          activeStyle={{
-            color: 'hsl(210,90%,43%)',
-          }}
-        >
-          Poradnie
-        </li>
+    <NavbarLi>
+      <Link
+        to="/zabiegi/laserowe-leczenie-żylaków-pniowych-evlt"
+        activeStyle={{
+          color: 'hsl(210,90%,43%)',
+        }}
+      >
+        Zabiegi
+      </Link>
+    </NavbarLi>
 
-        <li>
-          <Link
-            to="/zabiegi/laserowe-leczenie-żylaków-pniowych-evlt"
-            activeStyle={{
-              color: 'hsl(210,90%,43%)',
-            }}
-          >
-            Zabiegi
-          </Link>
-        </li>
+    <NavbarLi>
+      <Link
+        to="/cennik"
+        activeStyle={{
+          color: 'hsl(210,90%,43%)',
+        }}
+      >
+        Cennik
+      </Link>
+    </NavbarLi>
 
-        <li>
-          <Link
-            to="/cennik"
-            activeStyle={{
-              color: 'hsl(210,90%,43%)',
-            }}
-          >
-            Cennik
-          </Link>
-        </li>
+    <NavbarButton
+      type="button"
+      ref={refOnas}
+      onClick={showToggleOnas}
+      activeStyle={{
+        color: 'hsl(210,90%,43%)',
+      }}
+    >
+      O nas
+    </NavbarButton>
 
-        <li
-          ref={refOnas}
-          onClick={showToggleOnas}
-          activeStyle={{
-            color: 'hsl(210,90%,43%)',
-          }}
-        >
-          O nas
-        </li>
+    <NavbarLi>
+      <Link
+        to="/kontakt"
+        activeStyle={{
+          color: 'hsl(210,90%,43%)',
+        }}
+      >
+        Kontakt
+      </Link>
+    </NavbarLi>
 
-        <li>
-          <Link
-            to="/kontakt"
-            activeStyle={{
-              color: 'hsl(210,90%,43%)',
-            }}
-          >
-            Kontakt
-          </Link>
-        </li>
+    <NavbarLi>
+      <a href="https://sklep.nutrikon.pl/sklep/index.php">Sklep</a>
+    </NavbarLi>
+  </HeaderNavigation>
+)
 
-        <li>
-          <a href="https://sklep.nutrikon.pl/sklep/index.php">Sklep</a>
-        </li>
-      </HeaderNavigation>
-    )
-  }
+Navbar.propTypes = {
+  refOnas: PropTypes.object.isRequired,
+  refPoradnie: PropTypes.object.isRequired,
+  showToggleOnas: PropTypes.func.isRequired,
+  showTogglePoradnie: PropTypes.func.isRequired,
 }
 
 export default Navbar

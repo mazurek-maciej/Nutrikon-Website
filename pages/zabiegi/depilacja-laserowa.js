@@ -44,7 +44,7 @@ const Zabiegi = styled.div`
   }
 `
 
-const DepilacjaLaserowa = ({ data }) => (
+const DepilacjaLaserowa = props => (
   <Layout>
     <SEO
       title="Depilacja laserowa"
@@ -53,7 +53,8 @@ const DepilacjaLaserowa = ({ data }) => (
       ]}
       lang="pl/PL"
     />
-    <HeroZabiegi fluid={data.zabiegiImage.childImageSharp.fluid} />
+    <HeroZabiegi fluid={props.data.zabiegiImage.childImageSharp.fluid} />
+    {console.log(props)}
     <Zabiegi>
       <Section>
         <Container>

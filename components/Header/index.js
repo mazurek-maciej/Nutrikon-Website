@@ -22,7 +22,7 @@ const Nav = styled.nav`
 const ButtonWraper = styled.div`
   display: none;
   height: 3rem;
-  @media (max-width: 1088px) {
+  @media (max-width: 768px) {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -42,15 +42,20 @@ class Index extends Component {
     this.toggleOnasActive = React.createRef()
 
     this.state = {
-      isActive: '',
-      dropActive: false,
       isMobileActive: '',
       isDropMobileActive: '',
       isOpen: false,
       isOnasActive: '',
       isPoradnieActive: '',
-      hamburger: '',
     }
+  }
+
+  componentDidMount() {
+    window.addEventListener('click', this.handleOutsideNavigationClick)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('click', this.handleOutsideNavigationClick)
   }
 
   showToggleOnas = () => {
@@ -105,10 +110,6 @@ class Index extends Component {
         isPoradnieActive: '',
       })
     }
-  }
-
-  componentDidMount() {
-    window.addEventListener('click', this.handleOutsideNavigationClick)
   }
 
   render() {

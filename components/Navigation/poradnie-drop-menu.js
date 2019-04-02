@@ -1,21 +1,27 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import posed from 'react-pose'
 import styled from 'styled-components'
 
 const DropMenu = posed.ul({
-  open: {
+  visible: {
     opacity: 1,
-    transition: 200,
+    applyAtStart: { display: 'flex' },
+    transition: {
+      type: 'spring',
+    },
   },
-  closed: {
+  hidden: {
     opacity: 0,
-    transition: 100,
+    applyAtEnd: { display: 'none' },
+    transition: {
+      type: 'spring',
+    },
   },
 })
 const NavbarWraper = styled.div`
   .drop-menu {
-    display: ${props => props.active ? 'flex' : 'none'};
     justify-content: center;
     flex-flow: row wrap;
     position: absolute;
@@ -51,15 +57,13 @@ const NavbarWraper = styled.div`
       border-bottom: 2px solid ${({ theme }) => theme.colors.$B6};
     }
   }
-
 `
 
 const PoradnieDropMenu = ({ isPoradnieActive }) => (
-  <NavbarWraper active={isPoradnieActive}>
+  <NavbarWraper>
     <DropMenu
-      pose={isPoradnieActive ? 'open' : 'closed'}
-      className='drop-menu'
-      
+      pose={isPoradnieActive ? 'visible' : 'hidden'}
+      className="drop-menu"
     >
       <li>
         <Link
@@ -124,5 +128,9 @@ const PoradnieDropMenu = ({ isPoradnieActive }) => (
     </DropMenu>
   </NavbarWraper>
 )
+
+PoradnieDropMenu.propTypes = {
+  isPoradnieActive: PropTypes.string.isRequired,
+}
 
 export default PoradnieDropMenu

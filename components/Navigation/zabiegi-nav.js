@@ -9,10 +9,13 @@ const Navbar = styled.nav`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  ul li a {
-    color: ${({ theme }) => theme.colors.$white};
+  .active {
+    color: ${({ theme }) => theme.colors.$secondaryBlue};
   }
-  ul li a:hover {
+`
+const StyledLink = styled(Link)`
+  color: ${({ theme }) => theme.colors.$paragraph};
+  & :hover {
     color: ${({ theme }) => theme.colors.$secondaryBlue};
   }
 `
@@ -49,12 +52,6 @@ const Aside = styled.aside`
   box-shadow: 0 4px 25px hsla(0, 0%, 0%, 0.1);
   margin-top: 20%;
   z-index: 0;
-  ul > li > a {
-    color: ${({ theme }) => theme.colors.$paragraph};
-  }
-  ul > li {
-    margin-bottom: 4px;
-  }
   @media (min-width: 481px) and (max-width: 767px) {
     margin-top: 0;
   }
@@ -70,51 +67,94 @@ const ZabiegiNav = () => (
         <H2>Pozostałe zabiegi</H2>
         <ul>
           <li>
-            <Link to="/zabiegi/laserowe-leczenie-żylaków-pniowych-evlt">
+            <StyledLink
+              activeClassName="active"
+              to="/zabiegi/laserowe-leczenie-żylaków-pniowych-evlt"
+            >
               Laserowe leczenie żylaków pniowych EVLT
-            </Link>
+            </StyledLink>
           </li>
+
           <li>
-            <Link to="/zabiegi/skleroterapia">Skleroterapia</Link>
+            <StyledLink activeClassName="active" to="/zabiegi/skleroterapia">
+              Skleroterapia
+            </StyledLink>
           </li>
+
           <Divider />
+
           <li>
-            <Link to="/zabiegi/laserowe-usuwanie-brodawek-i-znamion">
+            <StyledLink
+              activeClassName="active"
+              to="/zabiegi/laserowe-usuwanie-brodawek-i-znamion"
+            >
               Laserowe usuwanie brodawek i znamion{' '}
-            </Link>
+            </StyledLink>
           </li>
+
           <Divider />
+
           <li>
-            <Link to="/zabiegi/laserowe-leczenie-nietrzymania-moczu">
+            <StyledLink
+              activeClassName="active"
+              to="/zabiegi/laserowe-leczenie-nietrzymania-moczu"
+            >
               Laserowe leczenie nietrzymania moczu
-            </Link>
+            </StyledLink>
           </li>
+
           <li>
-            <Link to="/zabiegi/usuwanie-zmian-skórnych-o-różnej-etiologii-z-okolicy-sromu-i-krocza">
+            <StyledLink
+              activeClassName="active"
+              to="/zabiegi/usuwanie-zmian-skórnych-o-różnej-etiologii-z-okolicy-sromu-i-krocza"
+            >
               Usuwanie zmian skórnych o różnej etiologii z okolicy sromu i
               krocza
-            </Link>
+            </StyledLink>
           </li>
+
           <li>
-            <Link to="/zabiegi/rewitalizacja-pochwy">Rewitalizacja pochwy</Link>
+            <StyledLink
+              activeClassName="active"
+              to="/zabiegi/rewitalizacja-pochwy"
+            >
+              Rewitalizacja pochwy
+            </StyledLink>
           </li>
           <Divider />
           <li>
-            <Link to="/zabiegi/mezoterapia">Mezoterapia</Link>
+            <StyledLink activeClassName="active" to="/zabiegi/mezoterapia">
+              Mezoterapia
+            </StyledLink>
           </li>
+
           <li>
-            <Link to="/zabiegi/osocze-bogatoplytkowe">
+            <StyledLink
+              activeClassName="active"
+              to="/zabiegi/osocze-bogatoplytkowe"
+            >
               Osocze bogatopłytkowe
-            </Link>
+            </StyledLink>
           </li>
+
           <Divider />
+
           <li>
-            <Link to="/zabiegi/laserowe-usuwanie-blizn-i-odmładzanie-skóry">
+            <StyledLink
+              activeClassName="active"
+              to="/zabiegi/laserowe-usuwanie-blizn-i-odmładzanie-skóry"
+            >
               Laserowe usuwanie blizn i odmładzanie skóry
-            </Link>
+            </StyledLink>
           </li>
+
           <li>
-            <Link to="/zabiegi/depilacja-laserowa">Depilacja laserowa</Link>
+            <StyledLink
+              activeClassName="active"
+              to="/zabiegi/depilacja-laserowa"
+            >
+              Depilacja laserowa
+            </StyledLink>
           </li>
         </ul>
         <Img src={img} alt="logo" />

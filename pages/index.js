@@ -5,7 +5,6 @@ import { graphql } from 'gatsby'
 
 import Fade from 'react-reveal/Fade'
 import SEO from '../components/seo'
-import MainCarousel from '../components/Carousel/MainCarousel'
 import Layout from '../components/Layout/layout'
 import BackgroundIndex from '../components/Backgrounds/BackgroundGradient'
 import News from '../components/news'
@@ -15,6 +14,7 @@ import H1 from '../components/Tags/H1'
 import H2 from '../components/Tags/H2'
 import Section from '../components/Section'
 import Container from '../components/Container'
+import MainCarousel from '../components/Carousel/MainCarousel'
 
 const TextWraper = styled.div`
   display: flex;
@@ -71,6 +71,7 @@ export default function IndexPage({ data }) {
         img={data.heroImage.childImageSharp.fluid}
         lectureImage={data.lectureImage.childImageSharp.fluid}
       />
+
       <main>
         <BackgroundIndex>
           <Section>

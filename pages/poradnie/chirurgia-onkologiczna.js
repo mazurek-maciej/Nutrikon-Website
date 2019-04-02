@@ -144,6 +144,14 @@ class Index extends Component {
                                   <DoctorInfo />
                                 </Link>
                               </li>
+                              <li>
+                                <Star>★</Star> lek. med. Jarosław Dziurdź -
+                                Specjalista chirurgii ogólnej i onkologicznej{' '}
+                              </li>
+                              <li>
+                                <Star>★</Star> lek. med. Mariusz Tarara -
+                                Specjalista radiolog{' '}
+                              </li>
                             </div>
                           </div>
                         </BoxNegativeColor>

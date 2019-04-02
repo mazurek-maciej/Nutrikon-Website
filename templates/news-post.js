@@ -24,12 +24,12 @@ const ContentPlaceholder = styled.article`
     padding: 0.5rem;
     margin: 0.5rem;
   }
-  ol {
+  ol,
+  ul {
     padding-left: 2rem;
   }
   h2 {
     font-size: 2rem;
-    margin-bottom: 1rem;
     color: ${({ theme }) => theme.colors.$secondary};
   }
   p {
@@ -50,8 +50,8 @@ const Image = styled.img`
 const GalleryWraper = styled.div`
   max-width: 900px;
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 `
 const BackButtonContainer = styled.div`
   max-width: 900px;
@@ -70,7 +70,7 @@ class NewsPost extends Component {
           <Section>
             <Container>
               <Wraper>
-                <H1>{title}</H1>
+                <H1 align="center">{title}</H1>
                 {this.displayImage()}
                 <BackButtonContainer>
                   <Link to="/">
@@ -107,7 +107,7 @@ class NewsPost extends Component {
   displayGallery = () => {
     const alt = this.props.data.contentfulAktualnosci.slug
     if (this.props.data.contentfulAktualnosci.gallery) {
-      const gallery = this.props.data.contentfulAktualnosci.gallery
+      const { gallery } = this.props.data.contentfulAktualnosci
       return (
         <GalleryWraper>
           {gallery.map(post => (
@@ -115,7 +115,7 @@ class NewsPost extends Component {
               image={{
                 src: post.resize.src,
                 alt,
-                style: { width: '400px', height: '300px', padding: '1rem' },
+                style: { width: '300px', height: '350px', padding: '1rem' },
               }}
               zoomImage={{
                 src: post.resize.src,
