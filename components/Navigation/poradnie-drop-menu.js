@@ -4,23 +4,22 @@ import { Link } from 'gatsby'
 import posed from 'react-pose'
 import styled from 'styled-components'
 
-const DropMenu = posed.ul({
+const PosedPoradnie = posed.div({
   visible: {
-    opacity: 1,
     applyAtStart: { display: 'flex' },
     transition: {
       type: 'spring',
     },
   },
   hidden: {
-    opacity: 0,
     applyAtEnd: { display: 'none' },
     transition: {
       type: 'spring',
     },
   },
 })
-const NavbarWraper = styled.div`
+const NavbarWraper = styled(PosedPoradnie)`
+  display: none;
   .drop-menu {
     justify-content: center;
     flex-flow: row wrap;
@@ -60,11 +59,8 @@ const NavbarWraper = styled.div`
 `
 
 const PoradnieDropMenu = ({ isPoradnieActive }) => (
-  <NavbarWraper>
-    <DropMenu
-      pose={isPoradnieActive ? 'visible' : 'hidden'}
-      className="drop-menu"
-    >
+  <NavbarWraper pose={isPoradnieActive ? 'visible' : 'hidden'}>
+    <ul className="drop-menu" style={{ display: 'flex' }}>
       <li>
         <Link
           to="/poradnie/chirurgia-ogolna"
@@ -125,12 +121,12 @@ const PoradnieDropMenu = ({ isPoradnieActive }) => (
           Żywieniowa
         </Link>
       </li>
-    </DropMenu>
+    </ul>
   </NavbarWraper>
 )
 
 PoradnieDropMenu.propTypes = {
-  isPoradnieActive: PropTypes.string.isRequired,
+  isPoradnieActive: PropTypes.bool.isRequired,
 }
 
 export default PoradnieDropMenu

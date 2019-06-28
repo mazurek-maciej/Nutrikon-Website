@@ -6,9 +6,11 @@ import PropTypes from 'prop-types'
 
 import Layout from '../../components/Layout/layout'
 import ZabiegiNav from '../../components/Navigation/zabiegi-nav'
-import BoxNegativeColor from '../../components/Backgrounds/BoxNegativeColor'
-import BoxNeutralColor from '../../components/Backgrounds/BoxNeutralColor'
-import BoxPositiveColor from '../../components/Backgrounds/BoxPositiveColor'
+import {
+  BoxNegativeColor,
+  BoxPositiveColor,
+  BoxNeutralColor,
+} from '../../components/Backgrounds'
 import H1 from '../../components/Tags/H1'
 import H2 from '../../components/Tags/H2'
 import Li from '../../components/Tags/Li'

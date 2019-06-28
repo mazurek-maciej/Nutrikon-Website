@@ -10,8 +10,10 @@ import stopImg from '../../images/no-stopping.svg'
 import H1 from '../../components/Tags/H1'
 import H2 from '../../components/Tags/H2'
 import Li from '../../components/Tags/Li'
-import BoxNegativeColor from '../../components/Backgrounds/BoxNegativeColor'
-import BoxPositiveColor from '../../components/Backgrounds/BoxPositiveColor'
+import {
+  BoxNegativeColor,
+  BoxPositiveColor,
+} from '../../components/Backgrounds'
 import Red from '../../components/Red'
 import Green from '../../components/Green'
 import SEO from '../../components/seo'
@@ -54,7 +56,6 @@ const DepilacjaLaserowa = props => (
       lang="pl/PL"
     />
     <HeroZabiegi fluid={props.data.zabiegiImage.childImageSharp.fluid} />
-    {console.log(props)}
     <Zabiegi>
       <Section>
         <Container>

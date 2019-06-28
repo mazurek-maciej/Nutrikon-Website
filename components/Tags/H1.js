@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const H1 = styled.h1`
+  display: ${({ flex }) => (flex ? 'flex' : 'block')};
   color: ${({ red, blue, white, theme }) =>
     red
       ? theme.colors.$R6

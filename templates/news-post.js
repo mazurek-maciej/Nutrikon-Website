@@ -7,7 +7,7 @@ import Layout from '../components/Layout/layout'
 import Container from '../components/Container'
 import Section from '../components/Section'
 import SEO from '../components/seo'
-import BackgroundGradient from '../components/Backgrounds/BackgroundGradient'
+import { BackgroundGradient } from '../components/Backgrounds'
 import H1 from '../components/Tags/H1'
 
 const Wraper = styled.div`
@@ -29,7 +29,7 @@ const ContentPlaceholder = styled.article`
     padding-left: 2rem;
   }
   h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: ${({ theme }) => theme.colors.$secondary};
   }
   p {
@@ -62,7 +62,6 @@ const BackButtonContainer = styled.div`
 class NewsPost extends Component {
   render() {
     const { title, body, image } = this.props.data.contentfulAktualnosci
-    console.log(image)
     return (
       <Layout>
         <SEO title={title} image={image.resize.src} />
@@ -83,6 +82,7 @@ class NewsPost extends Component {
                     __html: body.childMarkdownRemark.html,
                   }}
                 />
+                {this.displayPdf()}
                 {this.displayGallery()}
               </Wraper>
             </Container>
@@ -126,6 +126,18 @@ class NewsPost extends Component {
         </GalleryWraper>
       )
     }
+  }
+
+  displayPdf = () => {
+    if (this.props.data.contentfulAktualnosci.pdf) {
+      const { file } = this.props.data.contentfulAktualnosci.pdf
+      return (
+        <a style={{ fontSize: '1.2rem' }} href={file.url}>
+          Sprawdź regulamin konkursu
+        </a>
+      )
+    }
+    return <div />
   }
 }
 

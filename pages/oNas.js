@@ -7,7 +7,7 @@ import Layout from '../components/Layout/layout'
 import Underline from '../components/Underline'
 import H1 from '../components/Tags/H1'
 import H2 from '../components/Tags/H2'
-import Background from '../components/Backgrounds/BackgroundGradient'
+import { BackgroundGradient } from '../components/Backgrounds'
 import SEO from '../components/seo'
 import Section from '../components/Section'
 import Container from '../components/Container'
@@ -59,7 +59,7 @@ const Onas = ({ data }) => (
       lang="pl/PL"
     />
     <HeroOnas fluid={data.onasImage.childImageSharp.fluid} />
-    <Background>
+    <BackgroundGradient>
       <Section>
         <Container>
           <Wrapper>
@@ -122,7 +122,7 @@ const Onas = ({ data }) => (
           </Wrapper>
         </Container>
       </Section>
-    </Background>
+    </BackgroundGradient>
   </Layout>
 )
 

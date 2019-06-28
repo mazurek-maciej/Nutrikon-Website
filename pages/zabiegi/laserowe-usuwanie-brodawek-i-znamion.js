@@ -9,9 +9,11 @@ import H2 from '../../components/Tags/H2'
 import Li from '../../components/Tags/Li'
 import Red from '../../components/Red'
 import Green from '../../components/Green'
-import BoxNeutralColor from '../../components/Backgrounds/BoxNeutralColor'
-import BoxNegativeColor from '../../components/Backgrounds/BoxNegativeColor'
-import BoxPositiveColor from '../../components/Backgrounds/BoxPositiveColor'
+import {
+  BoxNegativeColor,
+  BoxPositiveColor,
+  BoxNeutralColor,
+} from '../../components/Backgrounds'
 import heartImg from '../../images/heart.svg'
 import heroImg from '../../images/mezoterapia.jpg'
 import SEO from '../../components/seo'

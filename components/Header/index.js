@@ -6,19 +6,6 @@ import PoradnieDropMenu from '../Navigation/poradnie-drop-menu'
 import OnasDropMenu from '../Navigation/onas-drop-menu'
 import TopHeader from './top-header'
 
-const Nav = styled.nav`
-  @media (max-width: 1088px) {
-    position: sticky !important;
-    top: 0;
-    z-index: 3;
-    background-color: ${({ theme }) => theme.colors.$white};
-    & > .hamburger {
-      position: sticky !important;
-      top: 0;
-      z-index: 3;
-    }
-  }
-`
 const ButtonWraper = styled.div`
   display: none;
   height: 3rem;
@@ -42,11 +29,10 @@ class Index extends Component {
     this.toggleOnasActive = React.createRef()
 
     this.state = {
-      isMobileActive: '',
       isDropMobileActive: '',
       isOpen: false,
-      isOnasActive: '',
-      isPoradnieActive: '',
+      isOnasActive: false,
+      isPoradnieActive: false,
     }
   }
 
@@ -60,13 +46,13 @@ class Index extends Component {
 
   showToggleOnas = () => {
     this.setState({
-      isOnasActive: 'active',
+      isOnasActive: true,
     })
   }
 
   showTogglePoradnie = () => {
     this.setState({
-      isPoradnieActive: 'active',
+      isPoradnieActive: true,
     })
   }
 
@@ -80,43 +66,38 @@ class Index extends Component {
   }
 
   showToggleHamburger = () => {
-    this.setState({
-      isMobileActive: 'active',
-      isOpen: true,
-      hamburger: 'is-active',
-    })
-    if (this.state.isMobileActive === 'active') {
-      this.setState({
-        isMobileActive: '',
-        isOpen: false,
-        hamburger: '',
-      })
-    }
+    this.setState(prevState => ({ isOpen: !prevState.isOpen }))
   }
 
   handleOutsideNavigationClick = event => {
     if (
-      this.state.isOnasActive === 'active' &&
+      this.state.isOnasActive === true &&
       !this.toggleOnasActive.current.contains(event.target)
     ) {
       this.setState({
-        isOnasActive: '',
+        isOnasActive: false,
       })
     } else if (
-      this.state.isPoradnieActive === 'active' &&
+      this.state.isPoradnieActive === true &&
       !this.togglePoradnieActive.current.contains(event.target)
     ) {
       this.setState({
-        isPoradnieActive: '',
+        isPoradnieActive: false,
       })
     }
   }
 
   render() {
+    const {
+      isOpen,
+      isDropMobileActive,
+      isPoradnieActive,
+      isOnasActive,
+    } = this.state
     return (
       <React.Fragment>
         <TopHeader />
-        <Nav>
+        <nav>
           <Navbar
             showTogglePoradnie={this.showTogglePoradnie}
             showToggleOnas={this.showToggleOnas}
@@ -131,16 +112,15 @@ class Index extends Component {
           </ButtonWraper>
 
           <MobileNavbar
-            isOpen={this.state.isOpen}
-            isMobileActive={this.state.isMobileActive}
-            isDropMobileActive={this.state.isDropMobileActive}
+            isOpen={isOpen}
+            isDropMobileActive={isDropMobileActive}
             showToggleDropMobileNav={this.showToggleDropMobileNav}
           />
 
-          <PoradnieDropMenu isPoradnieActive={this.state.isPoradnieActive} />
+          <PoradnieDropMenu isPoradnieActive={isPoradnieActive} />
 
-          <OnasDropMenu isOnasActive={this.state.isOnasActive} />
-        </Nav>
+          <OnasDropMenu isOnasActive={isOnasActive} />
+        </nav>
       </React.Fragment>
     )
   }

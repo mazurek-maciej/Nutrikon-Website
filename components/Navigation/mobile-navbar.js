@@ -4,25 +4,27 @@ import posed from 'react-pose'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const MobileNav = posed.ul({
-  open: {
+const PosedNavbar = posed.div({
+  visible: {
     opacity: 1,
+    applyAtStart: { display: 'flex' },
+    transition: {
+      duration: 200,
+      ease: 'easeIn',
+    },
+  },
+  hidden: {
+    opacity: 0,
+    applyAtEnd: { display: 'none' },
     transition: {
       duration: 200,
     },
   },
-  closed: {
-    opacity: 0,
-    transition: {
-      duration: 100,
-    },
-  },
 })
 
-const NavbarWraper = styled.div`
+const NavbarWraper = styled(PosedNavbar)`
   display: none;
   ${({ theme }) => theme.media.tablet`
-    display: ${props => (props.active ? 'flex' : 'none')};
     color: ${theme.colors.$paragraph};
     align-items: center;
     flex-direction: column;
@@ -33,13 +35,12 @@ const NavbarWraper = styled.div`
     background-color: rgba(255, 255, 255, 0.9);
     z-index: 1;
     font-size: 1.5rem;
-    transition: all 0.2s linear;
     position: sticky;
     top: 0;
     button {
       background: transparent;
       border: transparent;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       margin: 10px;
       color: ${theme.colors.$paragraph};
       :hover {
@@ -76,8 +77,7 @@ const NavbarWraper = styled.div`
     }
   `}
   ${({ theme }) => theme.media.phone`
-      font-size: 1.1rem;
-  
+      font-size: 1.2rem;
   `}
 
   .drop-menu-mobile {
@@ -87,13 +87,12 @@ const NavbarWraper = styled.div`
     width: 100vw;
     margin: 0;
     z-index: 1;
-    transition: all 0.2s linear;
     li {
       list-style: none;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin: 10px 10px 10px 10px;
+      margin: 10px
       width: fit-content;
       transition: all 0.2s;
       cursor: pointer;
@@ -115,17 +114,20 @@ const NavbarWraper = styled.div`
 
 const MobileNavbar = ({
   isOpen,
-  isMobileActive,
   isDropMobileActive,
   showToggleDropMobileNav,
 }) => (
-  <NavbarWraper active={isMobileActive}>
-    <MobileNav pose={isOpen ? 'open' : 'closed'}>
+  <NavbarWraper pose={isOpen ? 'visible' : 'hidden'}>
+    <ul>
       <li>
         <Link to="/">Strona Główna</Link>
       </li>
 
-      <button type="button" onClick={showToggleDropMobileNav}>
+      <button
+        style={{ fontSize: '24px', color: '#4a4a4a' }}
+        type="button"
+        onClick={showToggleDropMobileNav}
+      >
         Poradnie
       </button>
       <div>
@@ -182,13 +184,12 @@ const MobileNavbar = ({
       <li>
         <a href="https://sklep.nutrikon.pl/sklep/index.php">Sklep</a>
       </li>
-    </MobileNav>
+    </ul>
   </NavbarWraper>
 )
 
 MobileNavbar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  isMobileActive: PropTypes.string.isRequired,
   isDropMobileActive: PropTypes.string.isRequired,
   showToggleDropMobileNav: PropTypes.func.isRequired,
 }

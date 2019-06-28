@@ -11,9 +11,11 @@ import H1 from '../../components/Tags/H1'
 import H2 from '../../components/Tags/H2'
 import Li from '../../components/Tags/Li'
 import Red from '../../components/Red'
-import BoxNegativeColor from '../../components/Backgrounds/BoxNegativeColor'
-import BoxPositiveColor from '../../components/Backgrounds/BoxPositiveColor'
-import BoxNeutralColor from '../../components/Backgrounds/BoxNeutralColor'
+import {
+  BoxNegativeColor,
+  BoxPositiveColor,
+  BoxNeutralColor,
+} from '../../components/Backgrounds'
 import SEO from '../../components/seo'
 import Section from '../../components/Section'
 import Container from '../../components/Container'

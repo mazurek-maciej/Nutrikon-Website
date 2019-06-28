@@ -99,7 +99,7 @@ class Footer extends React.Component {
                 Nutrikon
               </H2>
               <p>
-                <b>Krakowska 32A, 46-020 Opole</b>
+                <b>Krakowska 32A, 45-075 Opole</b>
               </p>
               <FooterLinks>
                 <b>nutrikon@nutrikon.pl</b>

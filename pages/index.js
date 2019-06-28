@@ -6,7 +6,7 @@ import { graphql } from 'gatsby'
 import Fade from 'react-reveal/Fade'
 import SEO from '../components/seo'
 import Layout from '../components/Layout/layout'
-import BackgroundIndex from '../components/Backgrounds/BackgroundGradient'
+import { BackgroundGradient } from '../components/Backgrounds'
 import News from '../components/news'
 import logo from '../images/Nutrikon_Logo.svg'
 import ZabiegiPromo from '../components/PromoTiles'
@@ -50,18 +50,17 @@ const Logo = styled.img`
 const NewsWraper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 `
 export default function IndexPage({ data }) {
   const posts = data.allContentfulAktualnosci.edges
-    .slice(0, 4)
+    .slice(0, 6)
     .map(edge => edge.node)
-
+  console.log(posts)
   return (
     <Layout>
       <SEO
-        title="Strona główna"
+        title="Przychodnia Nutrikon | Opole"
         keywords={[
           'Nutrikon, przychodnia opole, zabiegi opole, lekarz opole, mezoterapia, skleroterapia, laserowe leczenie elvt, fachowa pomoc',
         ]}
@@ -73,7 +72,7 @@ export default function IndexPage({ data }) {
       />
 
       <main>
-        <BackgroundIndex>
+        <BackgroundGradient>
           <Section>
             <Container>
               <Fade big>
@@ -95,15 +94,15 @@ export default function IndexPage({ data }) {
               </Fade>
             </Container>
           </Section>
-          <section className="section">
+          <Section>
             <Fade>
               <NewsWraper>
                 <H2 big>Aktualności</H2>
                 <News posts={posts} />
               </NewsWraper>
             </Fade>
-          </section>
-        </BackgroundIndex>
+          </Section>
+        </BackgroundGradient>
       </main>
     </Layout>
   )
@@ -133,8 +132,16 @@ export const pageQuery = graphql`
             }
           }
           image {
-            resize(width: 800) {
+            fixed {
+              base64
+              tracedSVG
+              aspectRatio
+              width
+              height
               src
+              srcSet
+              srcWebp
+              srcSetWebp
             }
           }
         }

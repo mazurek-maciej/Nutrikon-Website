@@ -4,23 +4,16 @@ import { Link } from 'gatsby'
 import posed from 'react-pose'
 import styled from 'styled-components'
 
-const DropMenu = posed.ul({
+const PosedOnas = posed.div({
   visible: {
-    opacity: 1,
     applyAtStart: { display: 'flex' },
-    transition: {
-      type: 'spring',
-    },
   },
   hidden: {
-    opacity: 0,
     applyAtEnd: { display: 'none' },
-    transition: {
-      type: 'spring',
-    },
   },
 })
-const OnasNavbarWraper = styled.div`
+const OnasNavbarWraper = styled(PosedOnas)`
+  display: none;
   .drop-menu {
     justify-content: center;
     flex-flow: row wrap;
@@ -60,20 +53,20 @@ const OnasNavbarWraper = styled.div`
 `
 
 const OnasDropMenu = ({ isOnasActive }) => (
-  <OnasNavbarWraper>
-    <DropMenu pose={isOnasActive ? 'visible' : 'hidden'} className="drop-menu">
+  <OnasNavbarWraper pose={isOnasActive ? 'visible' : 'hidden'}>
+    <ul style={{ display: 'flex' }} className="drop-menu">
       <li>
         <Link to="/oNas">Przychodnia</Link>
       </li>
       <li>
         <Link to="/zespol">Zespół</Link>
       </li>
-    </DropMenu>
+    </ul>
   </OnasNavbarWraper>
 )
 
 OnasDropMenu.propTypes = {
-  isOnasActive: PropTypes.string.isRequired,
+  isOnasActive: PropTypes.bool.isRequired,
 }
 
 export default OnasDropMenu

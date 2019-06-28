@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 
 import replacmentImage from '../images/backgroundLogo.jpg'
 import H2 from './Tags/H2'
@@ -23,17 +24,18 @@ const ButtonWraper = styled.div`
 const News = ({ posts }) => (
   <Wraper>
     <Container>
-      <div className="columns is-centered is-multiline">
+      <div
+        style={{ justifyContent: 'space-evenly' }}
+        className="columns is-multiline"
+      >
         {posts.map(post => (
           <div key={post.slug} className="column is-two-fifths">
             <div className="card">
-              <div className="card-image">
-                <figure className="image is-5by3">
-                  <img
-                    src={post.image ? post.image.resize.src : replacmentImage}
-                    alt={post.slug}
-                  />
-                </figure>
+              <div className="card-image" style={{ overflow: 'hidden' }}>
+                <Img
+                  fluid={post.image ? post.image.fixed : replacmentImage}
+                  alt={post.slug}
+                />
               </div>
               <div className="card-content">
                 <div className="media">

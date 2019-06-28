@@ -53,7 +53,7 @@ const PoradnieNav = ({ navList }) => (
   <NavWraper>
     <Aside className="navbar">
       <Navbar>
-        <H2>Zabiegi wykonywane w ramach poradnii</H2>
+        <H2>Zabiegi wykonywane w ramach poradni</H2>
         <ul>
           {navList.map(item => (
             <li key={item}>
